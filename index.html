@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>💍 classic photo studio · wedding gift</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #fbe9f0, #f8e0e8, #fce2e2, #fde9e0, #f5e6d6);
+            background-size: 400% 400%;
+            animation: romanticGradient 16s ease infinite;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            overflow-y: auto;
+            position: relative;
+            margin: 0;
+            padding: 16px;
+        }
+
+        @keyframes romanticGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -50px;
+            color: rgba(255, 182, 193, 0.5);
+            font-size: 24px;
+            animation: floatHeart 10s linear infinite;
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+        }
+
+        .wedding-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 50px 20px 50px 20px;
+            box-shadow: 0 30px 50px rgba(210, 180, 140, 0.3), 0 10px 20px rgba(255, 200, 200, 0.5);
+            padding: 2.5rem 2rem;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            z-index: 20;
+            border: 3px solid rgba(255, 240, 245, 0.9);
+            animation: gentleFloat 1.2s ease-out;
+            margin: 20px 0;
+        }
+
+        @keyframes gentleFloat {
+            0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #b76e79;
+            text-shadow: 3px 3px 0 #ffe4e1, 5px 5px 0 rgba(255, 215, 215, 0.5);
+            margin-bottom: 0.3rem;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: #8b5f65;
+            background: rgba(255, 240, 235, 0.7);
+            display: inline-block;
+            padding: 0.4rem 1.5rem;
+            border-radius: 40px;
+            margin: 1rem 0 1.8rem;
+            border: 1px solid #f5c6c6;
+        }
+
+        .gift-wrapper {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 120px;
+            background: rgba(255, 250, 240, 0.6);
+            margin: 15px 0 15px;
+            -webkit-tap-highlight-color: transparent;
+            border: 2px dashed #e8b4b4;
+        }
+
+        .gift-wrapper:hover {
+            transform: scale(1.1);
+        }
+
+        .gift-wrapper:active {
+            transform: scale(0.95);
+        }
+
+        .gift-icon {
+            font-size: 10rem;
+            line-height: 1;
+            color: #d4a5a5;
+            filter: drop-shadow(0 15px 10px #fcc2c2);
+            animation: gentleWobble 4s infinite;
+        }
+
+        @keyframes gentleWobble {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
+        }
+
+        .click-hint {
+            font-size: 1.2rem;
+            color: #9b6b7c;
+            background: #fff0ed;
+            padding: 0.4rem 1.4rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin: 10px 0 0;
+            font-weight: 500;
+            border: 1px dotted #dba1a1;
+        }
+
+        .surprise-content {
+            margin-top: 2rem;
+            padding: 1.8rem 1.8rem 2.5rem;
+            background: rgba(255, 250, 245, 0.9);
+            backdrop-filter: blur(4px);
+            border-radius: 70px 20px 70px 20px;
+            border: 4px solid white;
+            box-shadow: inset 0 0 30px #fff0f0, 0 20px 30px rgba(0,0,0,0.1);
+        }
+
+        .surprise-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #a95c6a;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 0 #ffd9d9;
+        }
+
+        /* slideshow styles */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+            background: #f7d9d9;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .slide img, .slide .text-slide {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .text-slide {
+            background: #ffdede;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #b76e79;
+            text-shadow: 4px 4px 0 #ffe4e1;
+            line-height: 1.2;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+            color: white;
+            padding: 20px 15px 10px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .slideshow-controls {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .slideshow-btn {
+            background: white;
+            border: 2px solid #e8b4b4;
+            color: #a95c6a;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .slideshow-btn:hover {
+            background: #fcd7d7;
+        }
+
+        /* video section (currently commented out in HTML) */
+        .video-container {
+            margin: 2rem 0;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            background: #ffe4e1;
+        }
+
+        .video-container video {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-caption {
+            font-size: 1.2rem;
+            color: #a6426f;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* photo gallery grid */
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            width: 150px;
+            height: 150px;
+            border-radius: 20px;
+            border: 4px solid white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .wedding-message {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #4a2e35;
+            margin: 1.5rem 0 1rem;
+            line-height: 1.5;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .signature {
+            font-size: 1.3rem;
+            color: #af7b84;
+            background: #ffefef;
+            display: inline-block;
+            padding: 0.4rem 2rem;
+            border-radius: 40px;
+            font-style: italic;
+            margin: 0.5rem 0;
+        }
+
+        /* music player */
+        .music-player {
+            margin: 2rem 0 1rem;
+            padding: 1rem;
+            background: #fff6f6;
+            border-radius: 50px;
+            border: 2px solid #fbc1c1;
+        }
+
+        .music-player p {
+            font-size: 1.2rem;
+            color: #a95c6a;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .music-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .music-btn {
+            background: white;
+            border: 2px solid #e8b4b4;
+            color: #a95c6a;
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+        }
+
+        .music-btn:hover {
+            background: #fcd7d7;
+            transform: scale(1.03);
+        }
+
+        .stop-btn {
+            background: #ffe6e6;
+            border-color: #d88c8c;
+            color: #b15757;
+        }
+
+        /* hidden audio elements */
+        .personal-audio {
+            display: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* note for customization */
+        .custom-note {
+            background: #fffacd;
+            font-size: 0.9rem;
+            padding: 0.8rem;
+            border-radius: 30px;
+            margin-top: 1.2rem;
+            color: #7a4d4d;
+            border: 1px solid #f5bcbc;
+            text-align: left;
+        }
+
+        .custom-note i {
+            margin-right: 8px;
+            color: #b76e79;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .subtitle { font-size: 1.1rem; }
+            .gift-icon { font-size: 7rem; }
+            .surprise-content h2 { font-size: 2rem; }
+            .text-slide { font-size: 2rem; }
+            .slide img, .slide .text-slide { height: 250px; }
+            .gallery-item { width: 120px; height: 120px; }
+            .music-btn { padding: 0.5rem 1rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hearts-bg" id="heartContainer"></div>
+
+    <div class="wedding-card">
+        <h1>💍 our video story</h1>
+        <div class="subtitle">classic photo studio presents</div>
+
+        <div id="giftTrigger" class="gift-wrapper" role="button" tabindex="0" aria-label="Open wedding gift">
+            <div class="gift-icon">
+                <i class="fas fa-gem"></i>
+            </div>
+        </div>
+        <div class="click-hint">
+            <i class="fas fa-mouse-pointer"></i> tap to open your gift
+        </div>
+
+        <div id="surpriseBox" class="surprise-content hidden">
+            <h2>💞 classic photo studio</h2>
+
+            <!-- SLIDESHOW (VIDEO-LIKE) -->
+            <div class="slideshow-container">
+                <div class="slides" id="slides">
+                    <!-- Slide 1: CLASSIC PHOTO STUDIO text slide -->
+                    <div class="slide">
+                        <div class="text-slide">
+                            CLASSIC<br>PHOTO STUDIO
+                        </div>
+                        <div class="slide-caption">✨ our journey begins</div>
+                    </div>
+                    <!-- All your image slides (cleaned, no <var> tags) -->
+                    <div class="slide"><img src="images/1.jpg" alt="photo 1"><div class="slide-caption">💕 you & me</div></div>
+                    <div class="slide"><img src="images/2.jpg" alt="photo 2"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/3.jpg" alt="photo 3"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/4.jpg" alt="photo 4"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/5.jpg" alt="photo 5"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/6.png" alt="photo 6"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/7.jpg" alt="photo 7"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/8.jpg" alt="photo 8"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/9.jpg" alt="photo 9"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/10.jpg" alt="photo 10"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/11.jpg" alt="photo 11"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/12.jpg" alt="photo 12"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/13.jpg" alt="photo 13"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/14.jpg" alt="photo 14"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/15.jpg" alt="photo 15"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/16.jpg" alt="photo 16"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/17.jpg" alt="photo 17"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/18.jpg" alt="photo 18"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/19.jpg" alt="photo 19"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/20.jpg" alt="photo 20"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/21.jpg" alt="photo 21"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/22.jpg" alt="photo 22"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/23.jpg" alt="photo 23"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/24.jpg" alt="photo 24"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/25.jpg" alt="photo 25"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/26.jpg" alt="photo 26"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/27.jpg" alt="photo 27"><div class="slide-caption">💕 you & me</div></div>
+                    <div class="slide"><img src="images/28.jpg" alt="photo 28"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/29.jpg" alt="photo 29"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/30.jpg" alt="photo 30"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/31.jpg" alt="photo 31"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/32.png" alt="photo 32"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/33.jpg" alt="photo 33"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/34.jpg" alt="photo 34"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/35.jpg" alt="photo 35"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/36.jpg" alt="photo 36"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/37.jpg" alt="photo 37"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/38.jpg" alt="photo 38"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/39.jpg" alt="photo 39"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/40.jpg" alt="photo 40"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/41.jpg" alt="photo 41"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/42.jpg" alt="photo 42"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/43.jpg" alt="photo 43"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/44.jpg" alt="photo 44"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/45.jpg" alt="photo 45"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/46.jpg" alt="photo 46"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/47.jpg" alt="photo 47"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/48.jpg" alt="photo 48"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/49.jpg" alt="photo 49"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/50.jpg" alt="photo 50"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/51.jpg" alt="photo 51"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/52.jpg" alt="photo 52"><div class="slide-caption">💕 you & me</div></div>
+                    <div class="slide"><img src="images/53.jpg" alt="photo 53"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/54.jpg" alt="photo 54"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/55.jpg" alt="photo 55"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/56.jpg" alt="photo 56"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/57.png" alt="photo 57"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/58.jpg" alt="photo 58"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/59.jpg" alt="photo 59"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/60.jpg" alt="photo 60"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/70.jpg" alt="photo 70"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/71.jpg" alt="photo 71"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/72.jpg" alt="photo 72"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/73.jpg" alt="photo 73"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/74.jpg" alt="photo 74"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/75.jpg" alt="photo 75"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/76.jpg" alt="photo 76"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/77.jpg" alt="photo 77"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/78.jpg" alt="photo 78"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/79.jpg" alt="photo 79"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/80.jpg" alt="photo 80"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/81.jpg" alt="photo 81"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/82.jpg" alt="photo 82"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/83.jpg" alt="photo 83"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/84.jpg" alt="photo 84"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/85.jpg" alt="photo 85"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/86.jpg" alt="photo 86"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/87.jpg" alt="photo 87"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/88.jpg" alt="photo 88"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/89.jpg" alt="photo 89"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/90.jpg" alt="photo 90"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/91.jpg" alt="photo 91"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/92.jpg" alt="photo 92"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/93.jpg" alt="photo 93"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/94.jpg" alt="photo 94"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/95.jpg" alt="photo 95"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/96.jpg" alt="photo 96"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/97.jpg" alt="photo 97"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/98.jpg" alt="photo 98"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/99.jpg" alt="photo 99"><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/100.jpg" alt="photo 100"><div class="slide-caption">🌹 forever love</div></div>
+                </div>
+            </div>
+            <div class="slideshow-controls">
+                <button class="slideshow-btn" id="prevSlide"><i class="fas fa-chevron-left"></i> Prev</button>
+                <button class="slideshow-btn" id="nextSlide">Next <i class="fas fa-chevron-right"></i></button>
+            </div>
+            <p style="margin-top: 0.5rem; color: #8b5f65;">⏵ slideshow plays like a video – click arrows or wait for auto advance</p>
+
+            <!-- PERSONAL VIDEO SECTION (commented out – remove comments if you want to use it) -->
+            <!-- <div class="video-container">
+                <video id="personalVideo" controls preload="metadata" poster="https://placekitten.com/600/300?image=4">
+                    <source src="YOUR_VIDEO_FILE_URL.mp4" type="video/mp4">
+                </video>
+                <div class="video-caption">
+                    <i class="fas fa-camera"></i> my message for you
+                </div>
+            </div> -->
+
+            <!-- PHOTO GALLERY GRID -->
+            <h3 style="font-family: 'Playfair Display'; color: #a95c6a; margin: 2rem 0 1rem;">📸 our memories</h3>
+            <div class="photo-gallery" id="photoGallery">
+                <div class="gallery-item"><img src="images/.1.jpg" alt="photo 1"></div>
+                <div class="gallery-item"><img src="images/.2.jpg" alt="photo 2"></div>
+                <div class="gallery-item"><img src="images/.3.jpg" alt="photo 3"></div>
+                <div class="gallery-item"><img src="images/1.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/2.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/3.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/4.png" alt="photo 4"></div>
+                <div class="gallery-item"><img src="images/5.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/6.jpg" alt="photo 5"></div>
+                <div class="gallery-item"><img src="images/7.jpg" alt="photo 6"></div>
+                <div class="gallery-item"><img src="images/8.jpg" alt="photo 7"></div>
+                <div class="gallery-item"><img src="images/9.jpg" alt="photo 8"></div>
+                <div class="gallery-item"><img src="images/10.jpg" alt="photo 9"></div>
+                <div class="gallery-item"><img src="images/11.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/12.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/13.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/14.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/15.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/16.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/17.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/18.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/19.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/20.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/21.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/22.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/23.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/24.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/25.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/26.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/27.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/28.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/29.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/30.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/31.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/32.jpg" alt="photo 10"></div>
+                <div class="gallery-item"><img src="images/33.jpg" alt="photo 10"></div>
+                <!-- add more as needed -->
+            </div>
+
+            <div class="wedding-message">
+                every picture holds a story<br>here's to forever
+            </div>
+
+            <!-- MUSIC PLAYER with multiple personal audio tracks -->
+            <div class="music-player">
+                <p><i class="fas fa-music"></i> choose your melody</p>
+                <div class="music-buttons">
+                    <button class="music-btn" id="playCanon"><i class="fas fa-play"></i> Canon in D</button>
+                    <button class="music-btn" id="playMarch"><i class="fas fa-play"></i> Wedding March</button>
+                    <button class="music-btn" id="playLove"><i class="fas fa-play"></i> Love Theme</button>
+                    <button class="music-btn" id="playEdSheeran"><i class="fas fa-play"></i> Ed Sheeran Style</button>
+                    <!-- Multiple personal music buttons -->
+                    <button class="music-btn" id="playPersonal1"><i class="fas fa-microphone"></i> My Music 1</button>
+                    <button class="music-btn" id="playPersonal2"><i class="fas fa-microphone"></i> My Music 2</button>
+                    <button class="music-btn" id="playPersonal3"><i class="fas fa-microphone"></i> My Music 3</button>
+                    <button class="music-btn" id="playPersonal4"><i class="fas fa-microphone"></i> My Music 4</button>
+                    <button class="music-btn" id="playPersonal5"><i class="fas fa-microphone"></i> My Music 5</button>
+                    <button class="music-btn stop-btn" id="stopMusic"><i class="fas fa-stop"></i> Stop</button>
+                </div>
+            </div>
+
+            <!-- hidden audio elements for personal recordings (add as many as you need) -->
+            <audio id="personalAudio1" class="personal-audio" preload="none">
+                <source src="images/music1.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="personalAudio2" class="personal-audio" preload="none">
+                <source src="images/music2.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="personalAudio3" class="personal-audio" preload="none">
+                <source src="images/music3.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="personalAudio4" class="personal-audio" preload="none">
+                <source src="images/music4.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="personalAudio5" class="personal-audio" preload="none">
+                <source src="images/music5.mp3" type="audio/mpeg">
+            </audio>
+
+            <div class="signature">
+                <i class="fas fa-heart" style="color:#f18b8b;"></i> with all my love
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
+
+    <script>
+        (function() {
+            // floating hearts
+            const heartContainer = document.getElementById('heartContainer');
+            function createHeart() {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.fontSize = (15 + Math.random() * 30) + 'px';
+                heart.style.animationDuration = (6 + Math.random() * 8) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.opacity = 0.5 + Math.random() * 0.4;
+                return heart;
+            }
+            for (let i = 0; i < 25; i++) heartContainer.appendChild(createHeart());
+
+            // slideshow logic
+            const slides = document.getElementById('slides');
+            const slidesCount = slides.children.length;
+            let currentIndex = 0;
+
+            function updateSlide() {
+                slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            document.getElementById('nextSlide').addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % slidesCount;
+                updateSlide();
+            });
+
+            document.getElementById('prevSlide').addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + slidesCount) % slidesCount;
+                updateSlide();
+            });
+
+            // auto advance every 5 seconds
+            let autoAdvance = setInterval(() => {
+                currentIndex = (currentIndex + 1) % slidesCount;
+                updateSlide();
+            }, 5000);
+
+            // reset timer on manual click
+            document.getElementById('nextSlide').addEventListener('click', resetTimer);
+            document.getElementById('prevSlide').addEventListener('click', resetTimer);
+
+            function resetTimer() {
+                clearInterval(autoAdvance);
+                autoAdvance = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % slidesCount;
+                    updateSlide();
+                }, 5000);
+            }
+
+            // music player (synthesized melodies)
+            let currentAudioCtx = null;
+            let currentOscillators = [];
+
+            function stopCurrentMusic() {
+                if (currentAudioCtx) {
+                    currentOscillators.forEach(osc => { try { osc.stop(); } catch (e) {} });
+                    if (currentAudioCtx.state !== 'closed') currentAudioCtx.close();
+                }
+                currentOscillators = [];
+                currentAudioCtx = null;
+            }
+
+            function playMelody(notes, baseVolume = 0.15) {
+                stopCurrentMusic();
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                const audioCtx = new AudioContext();
+                currentAudioCtx = audioCtx;
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                const now = audioCtx.currentTime;
+                function playNote(frequency, startTime, duration, volume = baseVolume, type = 'sine') {
+                    const osc = audioCtx.createOscillator();
+                    const gainNode = audioCtx.createGain();
+                    osc.type = type; osc.frequency.value = frequency;
+                    gainNode.gain.setValueAtTime(0, startTime);
+                    gainNode.gain.linearRampToValueAtTime(volume, startTime + 0.03);
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
+                    osc.connect(gainNode); gainNode.connect(audioCtx.destination);
+                    currentOscillators.push(osc);
+                    osc.start(startTime); osc.stop(startTime + duration + 0.1);
+                }
+                let time = now + 0.2;
+                notes.forEach(n => {
+                    playNote(n.f, time, n.dur, n.vol || baseVolume, n.type || 'sine');
+                    time += n.dur + 0.03;
+                });
+                if (notes.length) playNote(261.63, now + 0.2, time - now - 0.2, 0.06, 'sine');
+            }
+
+            function playCanon() {
+                playMelody([
+                    { f: 523.25, dur: 0.6 }, { f: 587.33, dur: 0.6 }, { f: 659.25, dur: 0.6 },
+                    { f: 698.46, dur: 1.0 }, { f: 659.25, dur: 0.5 }, { f: 587.33, dur: 0.5 },
+                    { f: 523.25, dur: 1.2 }
+                ], 0.15);
+            }
+            function playWeddingMarch() {
+                playMelody([
+                    { f: 659.25, dur: 0.4 }, { f: 659.25, dur: 0.4 }, { f: 659.25, dur: 0.8 },
+                    { f: 659.25, dur: 0.4 }, { f: 659.25, dur: 0.4 }, { f: 659.25, dur: 0.8 },
+                    { f: 659.25, dur: 0.4 }, { f: 783.99, dur: 0.6 }, { f: 523.25, dur: 0.6 },
+                    { f: 587.33, dur: 0.6 }, { f: 659.25, dur: 1.2 }
+                ], 0.18);
+            }
+            function playLoveTheme() {
+                playMelody([
+                    { f: 523.25, dur: 1.0, vol: 0.2 }, { f: 587.33, dur: 0.8, vol: 0.2 },
+                    { f: 659.25, dur: 0.8, vol: 0.2 }, { f: 698.46, dur: 1.2, vol: 0.22 },
+                    { f: 783.99, dur: 1.0, vol: 0.2 }, { f: 698.46, dur: 0.8, vol: 0.2 },
+                    { f: 659.25, dur: 1.5, vol: 0.18 }
+                ], 0.18);
+            }
+            function playEdSheeranStyle() {
+                playMelody([
+                    { f: 392.00, dur: 0.8, vol: 0.2 }, { f: 493.88, dur: 0.8, vol: 0.2 },
+                    { f: 587.33, dur: 0.8, vol: 0.2 }, { f: 523.25, dur: 0.6, vol: 0.18 },
+                    { f: 440.00, dur: 0.6, vol: 0.18 }, { f: 392.00, dur: 1.2, vol: 0.22 },
+                    { f: 349.23, dur: 0.8, vol: 0.2 }, { f: 392.00, dur: 1.5, vol: 0.25 }
+                ], 0.2);
+            }
+
+            // Multiple personal audio players
+            const personalAudio1 = document.getElementById('personalAudio1');
+            const personalAudio2 = document.getElementById('personalAudio2');
+            const personalAudio3 = document.getElementById('personalAudio3');
+            const personalAudio4 = document.getElementById('personalAudio4');
+            const personalAudio5 = document.getElementById('personalAudio5');
+
+            function stopAllPersonalAudio() {
+                [personalAudio1, personalAudio2, personalAudio3, personalAudio4, personalAudio5].forEach(a => {
+                    a.pause();
+                    a.currentTime = 0;
+                });
+            }
+
+            function playPersonalAudio(audioElement) {
+                stopCurrentMusic();      // stop any synthesized melody
+                stopAllPersonalAudio();   // stop any other personal audio
+                audioElement.play().catch(e => alert("Could not play audio. Check file URL."));
+            }
+
+            document.getElementById('playPersonal1').addEventListener('click', () => playPersonalAudio(personalAudio1));
+            document.getElementById('playPersonal2').addEventListener('click', () => playPersonalAudio(personalAudio2));
+            document.getElementById('playPersonal3').addEventListener('click', () => playPersonalAudio(personalAudio3));
+            document.getElementById('playPersonal4').addEventListener('click', () => playPersonalAudio(personalAudio4));
+            document.getElementById('playPersonal5').addEventListener('click', () => playPersonalAudio(personalAudio5));
+
+            function stopAllMusic() {
+                stopCurrentMusic();
+                stopAllPersonalAudio();
+            }
+
+            document.getElementById('playCanon').addEventListener('click', playCanon);
+            document.getElementById('playMarch').addEventListener('click', playWeddingMarch);
+            document.getElementById('playLove').addEventListener('click', playLoveTheme);
+            document.getElementById('playEdSheeran').addEventListener('click', playEdSheeranStyle);
+            document.getElementById('stopMusic').addEventListener('click', stopAllMusic);
+
+            // reveal gift
+            const gift = document.getElementById('giftTrigger');
+            const surprise = document.getElementById('surpriseBox');
+            const subtitle = document.querySelector('.subtitle');
+            const hint = document.querySelector('.click-hint');
+            let revealed = false;
+
+            function revealGift() {
+                if (revealed) return;
+                revealed = true;
+                gift.style.transition = 'opacity 0.3s'; gift.style.opacity = '0';
+                subtitle.style.transition = 'opacity 0.3s'; subtitle.style.opacity = '0';
+                hint.style.transition = 'opacity 0.3s'; hint.style.opacity = '0';
+                setTimeout(() => {
+                    gift.style.display = 'none'; subtitle.style.display = 'none'; hint.style.display = 'none';
+                    surprise.classList.remove('hidden'); surprise.classList.add('fade-in');
+                    confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 }, colors: ['#f9c7c7', '#f8d5aa', '#fbb1b1'] });
+                    for (let i = 0; i < 8; i++) setTimeout(() => heartContainer.appendChild(createHeart()), i * 120);
+                }, 300);
+            }
+            gift.addEventListener('click', revealGift);
+            gift.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); revealGift(); } });
+
+            // initial confetti
+            window.addEventListener('load', () => setTimeout(() => confetti({ particleCount: 30, spread: 45, origin: { y: 0.5 }, colors: ['#fadadd'] }), 600));
+
+            setInterval(() => {
+                if (heartContainer.children.length < 35) heartContainer.appendChild(createHeart());
+                else { heartContainer.removeChild(heartContainer.firstChild); heartContainer.appendChild(createHeart()); }
+            }, 3000);
+        })();
+    </script>
+    <!-- 
+        CUSTOMIZATION GUIDE:
+        1. Replace all image paths in slides and gallery with your own photos.
+        2. Update the audio source paths (music1.mp3, music2.mp3, etc.) with your own audio files.
+        3. If you want to use the video section, uncomment the <div class="video-container"> and provide your video URL.
+        4. Add or remove personal audio buttons as needed.
+    -->
+</body>
+</html>
