@@ -289,6 +289,7 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             overflow: hidden;
             transition: transform 0.3s;
+            cursor: pointer;
         }
 
         .gallery-item:hover {
@@ -299,6 +300,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            pointer-events: none; /* so click triggers parent */
         }
 
         .wedding-message {
@@ -406,6 +408,48 @@
             color: #b76e79;
         }
 
+        /* Lightbox modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.1);
+            color: #fbc1c1;
+        }
+
         @media (max-width: 600px) {
             h1 { font-size: 2.2rem; }
             .subtitle { font-size: 1.1rem; }
@@ -448,10 +492,7 @@
                         </div>
                         <div class="slide-caption">✨ our journey begins</div>
                     </div>
-                    <!-- All your image slides (cleaned, no <var> tags) -->
-                    <!-- <div class="slide"><img src="images/1.jpg" alt="photo 1"><div class="slide-caption">💕 you & me</div></div>
-                    <div class="slide"><img src="images/2.jpg" alt="photo 2"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/3.jpg" alt="photo 3"><div class="slide-caption">🌹 forever love</div></div> -->
+                    <!-- All your image slides -->
                     <div class="slide"><img src="images/4.jpg" alt="photo 4"><div class="slide-caption">🌹 forever love</div></div>
                     <div class="slide"><img src="images/5.jpg" alt="photo 5"><div class="slide-caption">🌹 forever love</div></div>
                     <div class="slide"><img src="images/6.jpg" alt="photo 6"><div class="slide-caption">🌹 forever love</div></div>
@@ -548,16 +589,6 @@
             </div>
             <p style="margin-top: 0.5rem; color: #8b5f65;">⏵ slideshow plays like a video – click arrows or wait for auto advance</p>
 
-            <!-- PERSONAL VIDEO SECTION (commented out – remove comments if you want to use it) -->
-            <!-- <div class="video-container">
-                <video id="personalVideo" controls preload="metadata" poster="https://placekitten.com/600/300?image=4">
-                    <source src="YOUR_VIDEO_FILE_URL.mp4" type="video/mp4">
-                </video>
-                <div class="video-caption">
-                    <i class="fas fa-camera"></i> my message for you
-                </div>
-            </div> -->
-
             <!-- PHOTO GALLERY GRID -->
             <h3 style="font-family: 'Playfair Display'; color: #a95c6a; margin: 2rem 0 1rem;">📸 our memories</h3>
             <div class="photo-gallery" id="photoGallery">
@@ -607,7 +638,6 @@
                 <div class="gallery-item"><img src="images/43.jpg" alt="photo 10"></div>
                 <div class="gallery-item"><img src="images/44.jpg" alt="photo 10"></div>
                 <div class="gallery-item"><img src="images/45.jpg" alt="photo 10"></div>
-                <!-- add more as needed -->
             </div>
 
             <div class="wedding-message">
@@ -632,7 +662,7 @@
                 </div>
             </div>
 
-            <!-- hidden audio elements for personal recordings (add as many as you need) -->
+            <!-- hidden audio elements for personal recordings -->
             <audio id="personalAudio1" class="personal-audio" preload="none">
                 <source src="images/1.mp3" type="audio/mpeg">
             </audio>
@@ -659,6 +689,12 @@
                 <i class="fas fa-heart" style="color:#f18b8b;"></i> with all my love
             </div>
         </div>
+    </div>
+
+    <!-- Lightbox modal for gallery images -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="Enlarged view">
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
@@ -789,7 +825,7 @@
                 ], 0.2);
             }
 
-            // Multiple personal audio players
+            // Personal audio players
             const personalAudio1 = document.getElementById('personalAudio1');
             const personalAudio2 = document.getElementById('personalAudio2');
             const personalAudio3 = document.getElementById('personalAudio3');
@@ -798,17 +834,13 @@
 
             function stopAllPersonalAudio() {
                 [personalAudio1, personalAudio2, personalAudio3, personalAudio4, personalAudio5].forEach(a => {
-                    if (a) {
-                        a.pause();
-                        a.currentTime = 0;
-                    }
+                    if (a) { a.pause(); a.currentTime = 0; }
                 });
             }
 
             function playPersonalAudio(audioElement) {
-                stopCurrentMusic();      // stop any synthesized melody
-                stopAllPersonalAudio();   // stop any other personal audio
-                // Also pause background music (optional: if you want background to stop when playing personal)
+                stopCurrentMusic();
+                stopAllPersonalAudio();
                 const bgMusic = document.getElementById('bgMusic');
                 if (bgMusic && !bgMusic.paused) bgMusic.pause();
                 audioElement.play().catch(e => alert("Could not play audio. Check file URL."));
@@ -820,33 +852,20 @@
             document.getElementById('playPersonal4').addEventListener('click', () => playPersonalAudio(personalAudio4));
             document.getElementById('playPersonal5').addEventListener('click', () => playPersonalAudio(personalAudio5));
 
-            // Updated stopAllMusic to also stop background music
             function stopAllMusic() {
                 stopCurrentMusic();
                 stopAllPersonalAudio();
                 const bgMusic = document.getElementById('bgMusic');
                 if (bgMusic) {
                     bgMusic.pause();
-                    bgMusic.currentTime = 0;  // optional: reset to beginning
+                    bgMusic.currentTime = 0;
                 }
             }
 
-            document.getElementById('playCanon').addEventListener('click', () => {
-                stopAllMusic(); // stop background and personal
-                playCanon();
-            });
-            document.getElementById('playMarch').addEventListener('click', () => {
-                stopAllMusic();
-                playWeddingMarch();
-            });
-            document.getElementById('playLove').addEventListener('click', () => {
-                stopAllMusic();
-                playLoveTheme();
-            });
-            document.getElementById('playEdSheeran').addEventListener('click', () => {
-                stopAllMusic();
-                playEdSheeranStyle();
-            });
+            document.getElementById('playCanon').addEventListener('click', () => { stopAllMusic(); playCanon(); });
+            document.getElementById('playMarch').addEventListener('click', () => { stopAllMusic(); playWeddingMarch(); });
+            document.getElementById('playLove').addEventListener('click', () => { stopAllMusic(); playLoveTheme(); });
+            document.getElementById('playEdSheeran').addEventListener('click', () => { stopAllMusic(); playEdSheeranStyle(); });
             document.getElementById('stopMusic').addEventListener('click', stopAllMusic);
 
             // reveal gift
@@ -868,10 +887,10 @@
                     confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 }, colors: ['#f9c7c7', '#f8d5aa', '#fbb1b1'] });
                     for (let i = 0; i < 8; i++) setTimeout(() => heartContainer.appendChild(createHeart()), i * 120);
                     
-                    // Start background music (and stop any other music)
+                    // Start background music
                     const bgMusic = document.getElementById('bgMusic');
                     if (bgMusic) {
-                        stopAllMusic();  // ensures no conflicts
+                        stopAllMusic();
                         bgMusic.currentTime = 0;
                         bgMusic.play().catch(e => console.log("Autoplay prevented", e));
                     }
@@ -887,15 +906,46 @@
                 if (heartContainer.children.length < 35) heartContainer.appendChild(createHeart());
                 else { heartContainer.removeChild(heartContainer.firstChild); heartContainer.appendChild(createHeart()); }
             }, 3000);
+
+            // LIGHTBOX for gallery images (works even after reveal)
+            const modal = document.getElementById('lightboxModal');
+            const modalImg = document.getElementById('lightboxImg');
+            const closeModal = document.querySelector('.lightbox-close');
+            let galleryItems = document.querySelectorAll('.gallery-item');
+
+            function openLightbox(imgSrc) {
+                if (!imgSrc) return;
+                modalImg.src = imgSrc;
+                modal.classList.add('active');
+                modalImg.onerror = function() {
+                    modalImg.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ctext x="50%" y="50%" text-anchor="middle" dy=".3em" fill="white" font-size="14"%3EImage not found%3C/text%3E%3C/svg%3E';
+                };
+            }
+
+            function closeLightbox() {
+                modal.classList.remove('active');
+                modalImg.src = '';
+            }
+
+            // Attach click listeners to all gallery items (re-attach after reveal because they exist)
+            function attachLightboxEvents() {
+                galleryItems.forEach(item => {
+                    item.removeEventListener('click', item._lightboxClick);
+                    const handler = () => {
+                        const img = item.querySelector('img');
+                        if (img && img.src) openLightbox(img.src);
+                    };
+                    item.addEventListener('click', handler);
+                    item._lightboxClick = handler;
+                });
+            }
+
+            attachLightboxEvents();
+
+            closeModal.addEventListener('click', closeLightbox);
+            modal.addEventListener('click', (e) => { if (e.target === modal) closeLightbox(); });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('active')) closeLightbox(); });
         })();
     </script>
-    <!-- 
-        CUSTOMIZATION GUIDE:
-        1. Replace all image paths in slides and gallery with your own photos.
-        2. Update the audio source paths (music1.mp3, music2.mp3, etc.) with your own audio files.
-        3. If you want to use the video section, uncomment the <div class="video-container"> and provide your video URL.
-        4. Add or remove personal audio buttons as needed.
-        5. BACKGROUND MUSIC: upload your music file as "background-music.mp3" to the "images/" folder, or change the src in the <audio> element.
-    -->
 </body>
 </html>
