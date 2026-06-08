@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>💍 classic photo studio · wedding gift</title>
+    <title>💍 classic photo studio · wedding gift · ambient bg music</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -249,30 +249,6 @@
             background: #fcd7d7;
         }
 
-        /* video section (currently commented out in HTML) */
-        .video-container {
-            margin: 2rem 0;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            background: #ffe4e1;
-        }
-
-        .video-container video {
-            width: 100%;
-            max-height: 300px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .video-caption {
-            font-size: 1.2rem;
-            color: #a6426f;
-            margin-top: 0.5rem;
-            font-weight: 500;
-        }
-
-        /* photo gallery grid */
         .photo-gallery {
             display: flex;
             flex-wrap: wrap;
@@ -300,7 +276,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            pointer-events: none; /* so click triggers parent */
+            pointer-events: none;
         }
 
         .wedding-message {
@@ -323,7 +299,7 @@
             margin: 0.5rem 0;
         }
 
-        /* music player */
+        /* music player panel */
         .music-player {
             margin: 2rem 0 1rem;
             padding: 1rem;
@@ -350,9 +326,9 @@
             background: white;
             border: 2px solid #e8b4b4;
             color: #a95c6a;
-            padding: 0.6rem 1.5rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 40px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
@@ -373,7 +349,6 @@
             color: #b15757;
         }
 
-        /* hidden audio elements */
         .personal-audio {
             display: none;
         }
@@ -391,24 +366,6 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* note for customization */
-        .custom-note {
-            background: #fffacd;
-            font-size: 0.9rem;
-            padding: 0.8rem;
-            border-radius: 30px;
-            margin-top: 1.2rem;
-            color: #7a4d4d;
-            border: 1px solid #f5bcbc;
-            text-align: left;
-        }
-
-        .custom-note i {
-            margin-right: 8px;
-            color: #b76e79;
-        }
-
-        /* Lightbox modal */
         .lightbox-modal {
             display: none;
             position: fixed;
@@ -445,11 +402,6 @@
             transition: 0.2s;
         }
 
-        .lightbox-close:hover {
-            transform: scale(1.1);
-            color: #fbc1c1;
-        }
-
         @media (max-width: 600px) {
             h1 { font-size: 2.2rem; }
             .subtitle { font-size: 1.1rem; }
@@ -458,494 +410,385 @@
             .text-slide { font-size: 2rem; }
             .slide img, .slide .text-slide { height: 250px; }
             .gallery-item { width: 120px; height: 120px; }
-            .music-btn { padding: 0.5rem 1rem; font-size: 0.9rem; }
+            .music-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="hearts-bg" id="heartContainer"></div>
+<div class="hearts-bg" id="heartContainer"></div>
 
-    <div class="wedding-card">
-        <h1>💍 our video story</h1>
-        <div class="subtitle">classic photo studio presents</div>
+<div class="wedding-card">
+    <h1>💍 our video story</h1>
+    <div class="subtitle">classic photo studio presents</div>
 
-        <div id="giftTrigger" class="gift-wrapper" role="button" tabindex="0" aria-label="Open wedding gift">
-            <div class="gift-icon">
-                <i class="fas fa-gem"></i>
-            </div>
-        </div>
-        <div class="click-hint">
-            <i class="fas fa-mouse-pointer"></i> tap to open your gift
-        </div>
-
-        <div id="surpriseBox" class="surprise-content hidden">
-            <h2>💞 classic photo studio</h2>
-
-            <!-- SLIDESHOW (VIDEO-LIKE) -->
-            <div class="slideshow-container">
-                <div class="slides" id="slides">
-                    <!-- Slide 1: CLASSIC PHOTO STUDIO text slide -->
-                    <div class="slide">
-                        <div class="text-slide">
-                            CLASSIC<br>PHOTO STUDIO
-                        </div>
-                        <div class="slide-caption">✨ our journey begins</div>
-                    </div>
-                    <!-- All your image slides -->
-                    <div class="slide"><img src="images/4.jpg" alt="photo 4"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/5.jpg" alt="photo 5"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/6.jpg" alt="photo 6"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/7.jpg" alt="photo 7"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/8.jpg" alt="photo 8"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/9.png" alt="photo 9"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/10.jpg" alt="photo 10"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/11.jpg" alt="photo 11"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/12.jpg" alt="photo 12"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/13.jpg" alt="photo 13"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/14.jpg" alt="photo 14"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/15.jpg" alt="photo 15"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/16.jpg" alt="photo 16"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/17.jpg" alt="photo 17"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/18.jpg" alt="photo 18"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/19.jpg" alt="photo 19"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/20.jpg" alt="photo 20"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/21.jpg" alt="photo 21"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/22.jpg" alt="photo 22"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/23.jpg" alt="photo 23"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/24.png" alt="photo 24"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/25.jpg" alt="photo 25"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/26.jpg" alt="photo 26"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/27.jpg" alt="photo 27"><div class="slide-caption">💕 you & me</div></div>
-                    <div class="slide"><img src="images/28.jpg" alt="photo 28"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/29.jpg" alt="photo 29"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/30.jpg" alt="photo 30"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/31.jpg" alt="photo 31"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/32.png" alt="photo 32"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/33.jpg" alt="photo 33"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/34.jpg" alt="photo 34"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/35.jpg" alt="photo 35"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/36.jpg" alt="photo 36"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/37.jpg" alt="photo 37"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/38.jpg" alt="photo 38"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/39.jpg" alt="photo 39"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/40.jpg" alt="photo 40"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/41.jpg" alt="photo 41"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/42.jpg" alt="photo 42"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/43.jpg" alt="photo 43"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/44.jpg" alt="photo 44"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/45.jpg" alt="photo 45"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/46.jpg" alt="photo 46"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/47.jpg" alt="photo 47"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/48.jpg" alt="photo 48"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/49.jpg" alt="photo 49"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/50.jpg" alt="photo 50"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/51.jpg" alt="photo 51"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/52.jpg" alt="photo 52"><div class="slide-caption">💕 you & me</div></div>
-                    <div class="slide"><img src="images/53.jpg" alt="photo 53"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/54.jpg" alt="photo 54"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/55.jpg" alt="photo 55"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/56.jpg" alt="photo 56"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/57.png" alt="photo 57"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/58.jpg" alt="photo 58"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/59.jpg" alt="photo 59"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/60.jpg" alt="photo 60"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/70.jpg" alt="photo 70"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/71.jpg" alt="photo 71"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/72.jpg" alt="photo 72"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/73.jpg" alt="photo 73"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/74.jpg" alt="photo 74"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/75.jpg" alt="photo 75"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/76.jpg" alt="photo 76"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/77.jpg" alt="photo 77"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/78.jpg" alt="photo 78"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/79.jpg" alt="photo 79"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/80.jpg" alt="photo 80"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/81.jpg" alt="photo 81"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/82.jpg" alt="photo 82"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/83.jpg" alt="photo 83"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/84.jpg" alt="photo 84"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/85.jpg" alt="photo 85"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/86.jpg" alt="photo 86"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/87.jpg" alt="photo 87"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/88.jpg" alt="photo 88"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/89.jpg" alt="photo 89"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/90.jpg" alt="photo 90"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/91.jpg" alt="photo 91"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/92.jpg" alt="photo 92"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/93.jpg" alt="photo 93"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/94.jpg" alt="photo 94"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/95.jpg" alt="photo 95"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/96.jpg" alt="photo 96"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/97.jpg" alt="photo 97"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/98.jpg" alt="photo 98"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/99.jpg" alt="photo 99"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/100.jpg" alt="photo 100"><div class="slide-caption">🌹 forever love</div></div>
-                </div>
-            </div>
-            <div class="slideshow-controls">
-                <button class="slideshow-btn" id="prevSlide"><i class="fas fa-chevron-left"></i> Prev</button>
-                <button class="slideshow-btn" id="nextSlide">Next <i class="fas fa-chevron-right"></i></button>
-            </div>
-            <p style="margin-top: 0.5rem; color: #8b5f65;">⏵ slideshow plays like a video – click arrows or wait for auto advance</p>
-
-            <!-- PHOTO GALLERY GRID -->
-            <h3 style="font-family: 'Playfair Display'; color: #a95c6a; margin: 2rem 0 1rem;">📸 our memories</h3>
-            <div class="photo-gallery" id="photoGallery">
-                <div class="gallery-item"><img src="images/1.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/2.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/3.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/4.jpg" alt="photo 4"></div>
-                <div class="gallery-item"><img src="images/5.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/6.jpg" alt="photo 5"></div>
-                <div class="gallery-item"><img src="images/7.jpg" alt="photo 6"></div>
-                <div class="gallery-item"><img src="images/8.jpg" alt="photo 7"></div>
-                <div class="gallery-item"><img src="images/9.png" alt="photo 8"></div>
-                <div class="gallery-item"><img src="images/10.jpg" alt="photo 9"></div>
-                <div class="gallery-item"><img src="images/11.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/12.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/13.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/14.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/15.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/16.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/17.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/18.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/19.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/20.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/21.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/22.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/23.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/24.png" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/25.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/26.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/27.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/28.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/29.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/30.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/31.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/32.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/33.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/33.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/34.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/35.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/36.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/37.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/38.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/39.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/40.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/41.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/42.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/43.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/44.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/45.jpg" alt="photo 10"></div>
-            </div>
-
-            <div class="wedding-message">
-                every picture holds a story<br>here's to forever
-            </div>
-
-            <!-- MUSIC PLAYER with multiple personal audio tracks -->
-            <div class="music-player">
-                <p><i class="fas fa-music"></i> choose your melody</p>
-                <div class="music-buttons">
-                    <button class="music-btn" id="playCanon"><i class="fas fa-play"></i> Canon in D</button>
-                    <button class="music-btn" id="playMarch"><i class="fas fa-play"></i> Wedding March</button>
-                    <button class="music-btn" id="playLove"><i class="fas fa-play"></i> Love Theme</button>
-                    <button class="music-btn" id="playEdSheeran"><i class="fas fa-play"></i> Ed Sheeran Style</button>
-                    <!-- Multiple personal music buttons -->
-                    <button class="music-btn" id="playPersonal1"><i class="fas fa-microphone"></i> My Music 1</button>
-                    <button class="music-btn" id="playPersonal2"><i class="fas fa-microphone"></i> My Music 2</button>
-                    <button class="music-btn" id="playPersonal3"><i class="fas fa-microphone"></i> My Music 3</button>
-                    <button class="music-btn" id="playPersonal4"><i class="fas fa-microphone"></i> My Music 4</button>
-                    <button class="music-btn" id="playPersonal5"><i class="fas fa-microphone"></i> My Music 5</button>
-                    <button class="music-btn stop-btn" id="stopMusic"><i class="fas fa-stop"></i> Stop</button>
-                </div>
-            </div>
-
-            <!-- hidden audio elements for personal recordings -->
-            <audio id="personalAudio1" class="personal-audio" preload="none">
-                <source src="images/1.mp3" type="audio/mpeg">
-            </audio>
-            <audio id="personalAudio2" class="personal-audio" preload="none">
-                <source src="images/ehite.mp3" type="audio/mpeg">
-            </audio>
-            <audio id="personalAudio3" class="personal-audio" preload="none">
-                <source src="images/Tilahun.mp3" type="audio/mpeg">
-            </audio>
-            <audio id="personalAudio4" class="personal-audio" preload="none">
-                <source src="images/Tsegaye.mp3" type="audio/mpeg">
-            </audio>
-            <audio id="personalAudio5" class="personal-audio" preload="none">
-                <source src="images/kana.mp3" type="audio/mpeg">
-            </audio>
-
-            <!-- BACKGROUND MUSIC – will start when gift is opened -->
-            <audio id="bgMusic" loop preload="auto">
-                <source src="images/ehite.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-
-            <div class="signature">
-                <i class="fas fa-heart" style="color:#f18b8b;"></i> with all my love
-            </div>
+    <div id="giftTrigger" class="gift-wrapper" role="button" tabindex="0" aria-label="Open wedding gift">
+        <div class="gift-icon">
+            <i class="fas fa-gem"></i>
         </div>
     </div>
-
-    <!-- Lightbox modal for gallery images -->
-    <div id="lightboxModal" class="lightbox-modal">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-img" id="lightboxImg" src="" alt="Enlarged view">
+    <div class="click-hint">
+        <i class="fas fa-mouse-pointer"></i> tap to open your gift
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
+    <div id="surpriseBox" class="surprise-content hidden">
+        <h2>💞 classic photo studio</h2>
 
-    <script>
-        (function() {
-            // floating hearts
-            const heartContainer = document.getElementById('heartContainer');
-            function createHeart() {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.innerHTML = '❤️';
-                heart.style.left = Math.random() * 100 + '%';
-                heart.style.fontSize = (15 + Math.random() * 30) + 'px';
-                heart.style.animationDuration = (6 + Math.random() * 8) + 's';
-                heart.style.animationDelay = Math.random() * 5 + 's';
-                heart.style.opacity = 0.5 + Math.random() * 0.4;
-                return heart;
+        <!-- SLIDESHOW -->
+        <div class="slideshow-container">
+            <div class="slides" id="slides">
+                <div class="slide"><div class="text-slide">CLASSIC<br>PHOTO STUDIO</div><div class="slide-caption">✨ our journey begins</div></div>
+                <div class="slide"><img src="images/4.jpg" alt="photo 4"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/5.jpg" alt="photo 5"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/6.jpg" alt="photo 6"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/7.jpg" alt="photo 7"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/8.jpg" alt="photo 8"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/9.png" alt="photo 9"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/10.jpg" alt="photo 10"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/11.jpg" alt="photo 11"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/12.jpg" alt="photo 12"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/13.jpg" alt="photo 13"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/14.jpg" alt="photo 14"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/15.jpg" alt="photo 15"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/16.jpg" alt="photo 16"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/17.jpg" alt="photo 17"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/18.jpg" alt="photo 18"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/19.jpg" alt="photo 19"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/20.jpg" alt="photo 20"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/21.jpg" alt="photo 21"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/22.jpg" alt="photo 22"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/23.jpg" alt="photo 23"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/24.png" alt="photo 24"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/25.jpg" alt="photo 25"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/26.jpg" alt="photo 26"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/27.jpg" alt="photo 27"><div class="slide-caption">💕 you & me</div></div>
+                <div class="slide"><img src="images/28.jpg" alt="photo 28"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/29.jpg" alt="photo 29"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/30.jpg" alt="photo 30"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/31.jpg" alt="photo 31"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/32.png" alt="photo 32"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/33.jpg" alt="photo 33"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/34.jpg" alt="photo 34"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/35.jpg" alt="photo 35"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/36.jpg" alt="photo 36"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/37.jpg" alt="photo 37"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/38.jpg" alt="photo 38"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/39.jpg" alt="photo 39"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/40.jpg" alt="photo 40"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/41.jpg" alt="photo 41"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/42.jpg" alt="photo 42"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/43.jpg" alt="photo 43"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/44.jpg" alt="photo 44"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/45.jpg" alt="photo 45"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/46.jpg" alt="photo 46"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/47.jpg" alt="photo 47"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/48.jpg" alt="photo 48"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/49.jpg" alt="photo 49"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/50.jpg" alt="photo 50"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/51.jpg" alt="photo 51"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/52.jpg" alt="photo 52"><div class="slide-caption">💕 you & me</div></div>
+                <div class="slide"><img src="images/53.jpg" alt="photo 53"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/54.jpg" alt="photo 54"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/55.jpg" alt="photo 55"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/56.jpg" alt="photo 56"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/57.png" alt="photo 57"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/58.jpg" alt="photo 58"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/59.jpg" alt="photo 59"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/60.jpg" alt="photo 60"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/61.jpg" alt="photo 71"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/62.jpg" alt="photo 72"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/63.jpg" alt="photo 73"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/64.jpg" alt="photo 74"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/65.jpg" alt="photo 75"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/66.jpg" alt="photo 76"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/67.jpg" alt="photo 77"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/68.jpg" alt="photo 78"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/69.jpg" alt="photo 79"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/70.jpg" alt="photo 70"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/71.jpg" alt="photo 71"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/72.jpg" alt="photo 72"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/73.jpg" alt="photo 73"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/74.jpg" alt="photo 74"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/75.jpg" alt="photo 75"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/76.jpg" alt="photo 76"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/77.jpg" alt="photo 77"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/78.jpg" alt="photo 78"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/79.jpg" alt="photo 79"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/80.jpg" alt="photo 80"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/81.jpg" alt="photo 81"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/82.jpg" alt="photo 82"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/83.jpg" alt="photo 83"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/84.jpg" alt="photo 84"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/85.jpg" alt="photo 85"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/86.jpg" alt="photo 86"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/87.jpg" alt="photo 87"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/88.jpg" alt="photo 88"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/89.jpg" alt="photo 89"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/90.jpg" alt="photo 90"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/91.jpg" alt="photo 91"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/92.jpg" alt="photo 92"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/93.jpg" alt="photo 93"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/94.jpg" alt="photo 94"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/95.jpg" alt="photo 95"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/96.jpg" alt="photo 96"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/97.jpg" alt="photo 97"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/98.jpg" alt="photo 98"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/99.jpg" alt="photo 99"><div class="slide-caption">🌹 forever love</div></div>
+                <div class="slide"><img src="images/100.jpg" alt="photo 100"><div class="slide-caption">🌹 forever love</div></div>
+            </div>
+        </div>
+        <div class="slideshow-controls">
+            <button class="slideshow-btn" id="prevSlide"><i class="fas fa-chevron-left"></i> Prev</button>
+            <button class="slideshow-btn" id="nextSlide">Next <i class="fas fa-chevron-right"></i></button>
+        </div>
+        <p style="margin-top: 0.5rem; color: #8b5f65;">⏵ slideshow plays like a video – click arrows or wait for auto advance</p>
+
+        <!-- PHOTO GALLERY -->
+        <h3 style="font-family: 'Playfair Display'; color: #a95c6a; margin: 2rem 0 1rem;">📸 our memories</h3>
+        <div class="photo-gallery" id="photoGallery"></div>
+
+        <div class="wedding-message">
+            every picture holds a story<br>here's to forever
+        </div>
+
+        <!-- MUSIC PLAYER (no background toggle button, only melodies) -->
+        <div class="music-player">
+            <p><i class="fas fa-music"></i> choose your melody</p>
+            <div class="music-buttons">
+                <button class="music-btn" id="playCanon"><i class="fas fa-play"></i> Canon in D</button>
+                <button class="music-btn" id="playMarch"><i class="fas fa-play"></i> Wedding March</button>
+                <button class="music-btn" id="playLove"><i class="fas fa-play"></i> Love Theme</button>
+                <button class="music-btn" id="playEdSheeran"><i class="fas fa-play"></i> Ed Sheeran Style</button>
+                <button class="music-btn" id="playPersonal1"><i class="fas fa-microphone"></i> My Music 1</button>
+                <button class="music-btn" id="playPersonal2"><i class="fas fa-microphone"></i> My Music 2</button>
+                <button class="music-btn" id="playPersonal3"><i class="fas fa-microphone"></i> My Music 3</button>
+                <button class="music-btn" id="playPersonal4"><i class="fas fa-microphone"></i> My Music 4</button>
+                <button class="music-btn" id="playPersonal5"><i class="fas fa-microphone"></i> My Music 5</button>
+                <button class="music-btn stop-btn" id="stopMusic"><i class="fas fa-stop"></i> Stop All</button>
+            </div>
+        </div>
+
+        <!-- hidden personal audio files -->
+        <audio id="personalAudio1" class="personal-audio"><source src="images/1.mp3" type="audio/mpeg"></audio>
+        <audio id="personalAudio2" class="personal-audio"><source src="images/ehite.mp3" type="audio/mpeg"></audio>
+        <audio id="personalAudio3" class="personal-audio"><source src="images/Tilahun.mp3" type="audio/mpeg"></audio>
+        <audio id="personalAudio4" class="personal-audio"><source src="images/Tsegaye.mp3" type="audio/mpeg"></audio>
+        <audio id="personalAudio5" class="personal-audio"><source src="images/kana.mp3" type="audio/mpeg"></audio>
+
+        <div class="signature">
+            <i class="fas fa-heart" style="color:#f18b8b;"></i> with all my love
+        </div>
+    </div>
+</div>
+
+<div id="lightboxModal" class="lightbox-modal">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="Enlarged view">
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
+<script>
+    (function() {
+        // hearts
+        const heartContainer = document.getElementById('heartContainer');
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.fontSize = (15 + Math.random() * 30) + 'px';
+            heart.style.animationDuration = (6 + Math.random() * 8) + 's';
+            heart.style.opacity = 0.5 + Math.random() * 0.4;
+            return heart;
+        }
+        for (let i = 0; i < 25; i++) heartContainer.appendChild(createHeart());
+
+        // slideshow
+        const slides = document.getElementById('slides');
+        const slidesCount = slides.children.length;
+        let currentIndex = 0;
+        function updateSlide() { slides.style.transform = `translateX(-${currentIndex * 100}%)`; }
+        document.getElementById('nextSlide').addEventListener('click', () => { currentIndex = (currentIndex + 1) % slidesCount; updateSlide(); resetTimer(); });
+        document.getElementById('prevSlide').addEventListener('click', () => { currentIndex = (currentIndex - 1 + slidesCount) % slidesCount; updateSlide(); resetTimer(); });
+        let autoAdvance = setInterval(() => { currentIndex = (currentIndex + 1) % slidesCount; updateSlide(); }, 5000);
+        function resetTimer() { clearInterval(autoAdvance); autoAdvance = setInterval(() => { currentIndex = (currentIndex + 1) % slidesCount; updateSlide(); }, 5000); }
+
+        // -------------------- BACKGROUND AMBIENT MUSIC (AUTOMATIC) --------------------
+        let bgAudioCtx = null;
+        let bgInterval = null;
+        let bgActive = false;
+        let currentBgGain = null;
+        let activeBgOscillators = [];
+
+        function stopBackgroundAmbient() {
+            if (bgInterval) { clearInterval(bgInterval); bgInterval = null; }
+            if (activeBgOscillators.length) {
+                activeBgOscillators.forEach(osc => { try { osc.stop(); } catch(e) {} });
+                activeBgOscillators = [];
             }
-            for (let i = 0; i < 25; i++) heartContainer.appendChild(createHeart());
-
-            // slideshow logic
-            const slides = document.getElementById('slides');
-            const slidesCount = slides.children.length;
-            let currentIndex = 0;
-
-            function updateSlide() {
-                slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            if (bgAudioCtx && bgAudioCtx.state !== 'closed') {
+                bgAudioCtx.close().catch(e=>{});
+                bgAudioCtx = null;
             }
+            bgActive = false;
+        }
 
-            document.getElementById('nextSlide').addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % slidesCount;
-                updateSlide();
-            });
+        async function startBackgroundAmbient() {
+            if (bgActive) return;
+            stopBackgroundAmbient(); // clean start
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (!AudioCtx) return;
+            try {
+                const ctx = new AudioCtx();
+                bgAudioCtx = ctx;
+                if (ctx.state === 'suspended') await ctx.resume();
+                const masterGain = ctx.createGain();
+                masterGain.gain.value = 0.12; // soft background volume
+                masterGain.connect(ctx.destination);
+                currentBgGain = masterGain;
 
-            document.getElementById('prevSlide').addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + slidesCount) % slidesCount;
-                updateSlide();
-            });
+                // romantic chord progression: C - G - Am - F
+                const progressions = [
+                    { notes: [261.63, 329.63, 392.00], duration: 5000 },
+                    { notes: [196.00, 246.94, 293.66, 392.00], duration: 5000 },
+                    { notes: [220.00, 261.63, 329.63], duration: 5000 },
+                    { notes: [174.61, 220.00, 261.63, 349.23], duration: 5000 }
+                ];
+                let step = 0;
 
-            // auto advance every 5 seconds
-            let autoAdvance = setInterval(() => {
-                currentIndex = (currentIndex + 1) % slidesCount;
-                updateSlide();
-            }, 5000);
-
-            // reset timer on manual click
-            document.getElementById('nextSlide').addEventListener('click', resetTimer);
-            document.getElementById('prevSlide').addEventListener('click', resetTimer);
-
-            function resetTimer() {
-                clearInterval(autoAdvance);
-                autoAdvance = setInterval(() => {
-                    currentIndex = (currentIndex + 1) % slidesCount;
-                    updateSlide();
-                }, 5000);
-            }
-
-            // music player (synthesized melodies)
-            let currentAudioCtx = null;
-            let currentOscillators = [];
-
-            function stopCurrentMusic() {
-                if (currentAudioCtx) {
-                    currentOscillators.forEach(osc => { try { osc.stop(); } catch (e) {} });
-                    if (currentAudioCtx.state !== 'closed') currentAudioCtx.close();
+                function playChord() {
+                    if (!bgAudioCtx || !bgActive) return;
+                    const now = bgAudioCtx.currentTime;
+                    const chord = progressions[step % progressions.length];
+                    const oscs = [];
+                    chord.notes.forEach(freq => {
+                        const osc = bgAudioCtx.createOscillator();
+                        const gainNode = bgAudioCtx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.value = freq;
+                        gainNode.gain.setValueAtTime(0, now);
+                        gainNode.gain.linearRampToValueAtTime(0.08, now + 0.8);
+                        gainNode.gain.exponentialRampToValueAtTime(0.0001, now + 4.2);
+                        osc.connect(gainNode);
+                        gainNode.connect(currentBgGain);
+                        osc.start(now);
+                        osc.stop(now + 4.5);
+                        oscs.push(osc);
+                    });
+                    activeBgOscillators.push(...oscs);
+                    step++;
                 }
-                currentOscillators = [];
+                playChord();
+                bgInterval = setInterval(() => { if (bgActive && bgAudioCtx) playChord(); else clearInterval(bgInterval); }, 4800);
+                bgActive = true;
+            } catch(e) { console.warn("bg ambient start error", e); }
+        }
+
+        // stop all music (melodies, personal, background)
+        let currentAudioCtx = null;
+        let currentOscillators = [];
+        function stopCurrentMelodies() {
+            if (currentAudioCtx) {
+                currentOscillators.forEach(osc => { try { osc.stop(); } catch(e) {} });
+                if (currentAudioCtx.state !== 'closed') currentAudioCtx.close();
                 currentAudioCtx = null;
+                currentOscillators = [];
             }
+        }
+        function stopAllPersonalAudio() {
+            [1,2,3,4,5].forEach(i => {
+                const a = document.getElementById(`personalAudio${i}`);
+                if (a) { a.pause(); a.currentTime = 0; }
+            });
+        }
+        function stopAllMusic() {
+            stopCurrentMelodies();
+            stopAllPersonalAudio();
+            stopBackgroundAmbient();  // background also stops when user selects something else
+        }
 
-            function playMelody(notes, baseVolume = 0.15) {
-                stopCurrentMusic();
-                const AudioContext = window.AudioContext || window.webkitAudioContext;
-                if (!AudioContext) return;
-                const audioCtx = new AudioContext();
-                currentAudioCtx = audioCtx;
-                if (audioCtx.state === 'suspended') audioCtx.resume();
-                const now = audioCtx.currentTime;
-                function playNote(frequency, startTime, duration, volume = baseVolume, type = 'sine') {
-                    const osc = audioCtx.createOscillator();
-                    const gainNode = audioCtx.createGain();
-                    osc.type = type; osc.frequency.value = frequency;
-                    gainNode.gain.setValueAtTime(0, startTime);
-                    gainNode.gain.linearRampToValueAtTime(volume, startTime + 0.03);
-                    gainNode.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
-                    osc.connect(gainNode); gainNode.connect(audioCtx.destination);
-                    currentOscillators.push(osc);
-                    osc.start(startTime); osc.stop(startTime + duration + 0.1);
-                }
-                let time = now + 0.2;
-                notes.forEach(n => {
-                    playNote(n.f, time, n.dur, n.vol || baseVolume, n.type || 'sine');
-                    time += n.dur + 0.03;
-                });
-                if (notes.length) playNote(261.63, now + 0.2, time - now - 0.2, 0.06, 'sine');
+        // melody synthesizers (these will also stop background ambient)
+        function playMelody(notes, baseVolume = 0.15) {
+            stopAllMusic(); // stops background + any other music
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            if (!AudioContext) return;
+            const audioCtx = new AudioContext();
+            currentAudioCtx = audioCtx;
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            const now = audioCtx.currentTime;
+            function playNote(frequency, startTime, duration, volume = baseVolume, type = 'sine') {
+                const osc = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                osc.type = type; osc.frequency.value = frequency;
+                gainNode.gain.setValueAtTime(0, startTime);
+                gainNode.gain.linearRampToValueAtTime(volume, startTime + 0.03);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
+                osc.connect(gainNode); gainNode.connect(audioCtx.destination);
+                currentOscillators.push(osc);
+                osc.start(startTime); osc.stop(startTime + duration + 0.1);
             }
+            let time = now + 0.2;
+            notes.forEach(n => { playNote(n.f, time, n.dur, n.vol || baseVolume, n.type || 'sine'); time += n.dur + 0.03; });
+        }
+        function playCanon() { playMelody([{ f:523.25,dur:0.6},{ f:587.33,dur:0.6},{ f:659.25,dur:0.6},{ f:698.46,dur:1.0},{ f:659.25,dur:0.5},{ f:587.33,dur:0.5},{ f:523.25,dur:1.2}],0.15); }
+        function playWeddingMarch() { playMelody([{ f:659.25,dur:0.4},{ f:659.25,dur:0.4},{ f:659.25,dur:0.8},{ f:659.25,dur:0.4},{ f:659.25,dur:0.4},{ f:659.25,dur:0.8},{ f:659.25,dur:0.4},{ f:783.99,dur:0.6},{ f:523.25,dur:0.6},{ f:587.33,dur:0.6},{ f:659.25,dur:1.2}],0.18); }
+        function playLoveTheme() { playMelody([{ f:523.25,dur:1.0,vol:0.2},{ f:587.33,dur:0.8,vol:0.2},{ f:659.25,dur:0.8,vol:0.2},{ f:698.46,dur:1.2,vol:0.22},{ f:783.99,dur:1.0,vol:0.2},{ f:698.46,dur:0.8,vol:0.2},{ f:659.25,dur:1.5,vol:0.18}],0.18); }
+        function playEdSheeranStyle() { playMelody([{ f:392.00,dur:0.8,vol:0.2},{ f:493.88,dur:0.8,vol:0.2},{ f:587.33,dur:0.8,vol:0.2},{ f:523.25,dur:0.6,vol:0.18},{ f:440.00,dur:0.6,vol:0.18},{ f:392.00,dur:1.2,vol:0.22},{ f:349.23,dur:0.8,vol:0.2},{ f:392.00,dur:1.5,vol:0.25}],0.2); }
+        function playPersonalAudio(audioElement) { stopAllMusic(); audioElement.play().catch(e=>console.log); }
 
-            function playCanon() {
-                playMelody([
-                    { f: 523.25, dur: 0.6 }, { f: 587.33, dur: 0.6 }, { f: 659.25, dur: 0.6 },
-                    { f: 698.46, dur: 1.0 }, { f: 659.25, dur: 0.5 }, { f: 587.33, dur: 0.5 },
-                    { f: 523.25, dur: 1.2 }
-                ], 0.15);
-            }
-            function playWeddingMarch() {
-                playMelody([
-                    { f: 659.25, dur: 0.4 }, { f: 659.25, dur: 0.4 }, { f: 659.25, dur: 0.8 },
-                    { f: 659.25, dur: 0.4 }, { f: 659.25, dur: 0.4 }, { f: 659.25, dur: 0.8 },
-                    { f: 659.25, dur: 0.4 }, { f: 783.99, dur: 0.6 }, { f: 523.25, dur: 0.6 },
-                    { f: 587.33, dur: 0.6 }, { f: 659.25, dur: 1.2 }
-                ], 0.18);
-            }
-            function playLoveTheme() {
-                playMelody([
-                    { f: 523.25, dur: 1.0, vol: 0.2 }, { f: 587.33, dur: 0.8, vol: 0.2 },
-                    { f: 659.25, dur: 0.8, vol: 0.2 }, { f: 698.46, dur: 1.2, vol: 0.22 },
-                    { f: 783.99, dur: 1.0, vol: 0.2 }, { f: 698.46, dur: 0.8, vol: 0.2 },
-                    { f: 659.25, dur: 1.5, vol: 0.18 }
-                ], 0.18);
-            }
-            function playEdSheeranStyle() {
-                playMelody([
-                    { f: 392.00, dur: 0.8, vol: 0.2 }, { f: 493.88, dur: 0.8, vol: 0.2 },
-                    { f: 587.33, dur: 0.8, vol: 0.2 }, { f: 523.25, dur: 0.6, vol: 0.18 },
-                    { f: 440.00, dur: 0.6, vol: 0.18 }, { f: 392.00, dur: 1.2, vol: 0.22 },
-                    { f: 349.23, dur: 0.8, vol: 0.2 }, { f: 392.00, dur: 1.5, vol: 0.25 }
-                ], 0.2);
-            }
+        // attach melody buttons
+        document.getElementById('playCanon').addEventListener('click', playCanon);
+        document.getElementById('playMarch').addEventListener('click', playWeddingMarch);
+        document.getElementById('playLove').addEventListener('click', playLoveTheme);
+        document.getElementById('playEdSheeran').addEventListener('click', playEdSheeranStyle);
+        document.getElementById('playPersonal1').addEventListener('click', () => playPersonalAudio(document.getElementById('personalAudio1')));
+        document.getElementById('playPersonal2').addEventListener('click', () => playPersonalAudio(document.getElementById('personalAudio2')));
+        document.getElementById('playPersonal3').addEventListener('click', () => playPersonalAudio(document.getElementById('personalAudio3')));
+        document.getElementById('playPersonal4').addEventListener('click', () => playPersonalAudio(document.getElementById('personalAudio4')));
+        document.getElementById('playPersonal5').addEventListener('click', () => playPersonalAudio(document.getElementById('personalAudio5')));
+        document.getElementById('stopMusic').addEventListener('click', stopAllMusic);
 
-            // Personal audio players
-            const personalAudio1 = document.getElementById('personalAudio1');
-            const personalAudio2 = document.getElementById('personalAudio2');
-            const personalAudio3 = document.getElementById('personalAudio3');
-            const personalAudio4 = document.getElementById('personalAudio4');
-            const personalAudio5 = document.getElementById('personalAudio5');
+        // GIFT REVEAL + auto-start background music
+        const gift = document.getElementById('giftTrigger');
+        const surprise = document.getElementById('surpriseBox');
+        const subtitle = document.querySelector('.subtitle');
+        const hint = document.querySelector('.click-hint');
+        let revealed = false;
+        async function revealGift() {
+            if (revealed) return;
+            revealed = true;
+            gift.style.transition = 'opacity 0.3s'; gift.style.opacity = '0';
+            subtitle.style.transition = 'opacity 0.3s'; subtitle.style.opacity = '0';
+            hint.style.transition = 'opacity 0.3s'; hint.style.opacity = '0';
+            setTimeout(async () => {
+                gift.style.display = 'none'; subtitle.style.display = 'none'; hint.style.display = 'none';
+                surprise.classList.remove('hidden'); surprise.classList.add('fade-in');
+                canvasConfetti({ particleCount: 120, spread: 80, origin: { y: 0.6 }, colors: ['#f9c7c7', '#f8d5aa', '#fbb1b1'] });
+                for (let i = 0; i < 8; i++) setTimeout(() => heartContainer.appendChild(createHeart()), i * 120);
+                // AUTO START BACKGROUND AMBIENT MUSIC
+                await startBackgroundAmbient();
+            }, 300);
+        }
+        gift.addEventListener('click', revealGift);
+        gift.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); revealGift(); } });
+        window.addEventListener('load', () => setTimeout(() => canvasConfetti({ particleCount: 30, spread: 45, origin: { y: 0.5 }, colors: ['#fadadd'] }), 600));
+        setInterval(() => { if (heartContainer.children.length < 35) heartContainer.appendChild(createHeart()); else { heartContainer.removeChild(heartContainer.firstChild); heartContainer.appendChild(createHeart()); } }, 3000);
 
-            function stopAllPersonalAudio() {
-                [personalAudio1, personalAudio2, personalAudio3, personalAudio4, personalAudio5].forEach(a => {
-                    if (a) { a.pause(); a.currentTime = 0; }
-                });
-            }
-
-            function playPersonalAudio(audioElement) {
-                stopCurrentMusic();
-                stopAllPersonalAudio();
-                const bgMusic = document.getElementById('bgMusic');
-                if (bgMusic && !bgMusic.paused) bgMusic.pause();
-                audioElement.play().catch(e => alert("Could not play audio. Check file URL."));
-            }
-
-            document.getElementById('playPersonal1').addEventListener('click', () => playPersonalAudio(personalAudio1));
-            document.getElementById('playPersonal2').addEventListener('click', () => playPersonalAudio(personalAudio2));
-            document.getElementById('playPersonal3').addEventListener('click', () => playPersonalAudio(personalAudio3));
-            document.getElementById('playPersonal4').addEventListener('click', () => playPersonalAudio(personalAudio4));
-            document.getElementById('playPersonal5').addEventListener('click', () => playPersonalAudio(personalAudio5));
-
-            function stopAllMusic() {
-                stopCurrentMusic();
-                stopAllPersonalAudio();
-                const bgMusic = document.getElementById('bgMusic');
-                if (bgMusic) {
-                    bgMusic.pause();
-                    bgMusic.currentTime = 0;
-                }
-            }
-
-            document.getElementById('playCanon').addEventListener('click', () => { stopAllMusic(); playCanon(); });
-            document.getElementById('playMarch').addEventListener('click', () => { stopAllMusic(); playWeddingMarch(); });
-            document.getElementById('playLove').addEventListener('click', () => { stopAllMusic(); playLoveTheme(); });
-            document.getElementById('playEdSheeran').addEventListener('click', () => { stopAllMusic(); playEdSheeranStyle(); });
-            document.getElementById('stopMusic').addEventListener('click', stopAllMusic);
-
-            // reveal gift
-            const gift = document.getElementById('giftTrigger');
-            const surprise = document.getElementById('surpriseBox');
-            const subtitle = document.querySelector('.subtitle');
-            const hint = document.querySelector('.click-hint');
-            let revealed = false;
-
-            function revealGift() {
-                if (revealed) return;
-                revealed = true;
-                gift.style.transition = 'opacity 0.3s'; gift.style.opacity = '0';
-                subtitle.style.transition = 'opacity 0.3s'; subtitle.style.opacity = '0';
-                hint.style.transition = 'opacity 0.3s'; hint.style.opacity = '0';
-                setTimeout(() => {
-                    gift.style.display = 'none'; subtitle.style.display = 'none'; hint.style.display = 'none';
-                    surprise.classList.remove('hidden'); surprise.classList.add('fade-in');
-                    confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 }, colors: ['#f9c7c7', '#f8d5aa', '#fbb1b1'] });
-                    for (let i = 0; i < 8; i++) setTimeout(() => heartContainer.appendChild(createHeart()), i * 120);
-                    
-                    // Start background music
-                    const bgMusic = document.getElementById('bgMusic');
-                    if (bgMusic) {
-                        stopAllMusic();
-                        bgMusic.currentTime = 0;
-                        bgMusic.play().catch(e => console.log("Autoplay prevented", e));
-                    }
-                }, 300);
-            }
-            gift.addEventListener('click', revealGift);
-            gift.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); revealGift(); } });
-
-            // initial confetti
-            window.addEventListener('load', () => setTimeout(() => confetti({ particleCount: 30, spread: 45, origin: { y: 0.5 }, colors: ['#fadadd'] }), 600));
-
-            setInterval(() => {
-                if (heartContainer.children.length < 35) heartContainer.appendChild(createHeart());
-                else { heartContainer.removeChild(heartContainer.firstChild); heartContainer.appendChild(createHeart()); }
-            }, 3000);
-
-            // LIGHTBOX for gallery images (works even after reveal)
-            const modal = document.getElementById('lightboxModal');
-            const modalImg = document.getElementById('lightboxImg');
-            const closeModal = document.querySelector('.lightbox-close');
-            let galleryItems = document.querySelectorAll('.gallery-item');
-
-            function openLightbox(imgSrc) {
-                if (!imgSrc) return;
-                modalImg.src = imgSrc;
-                modal.classList.add('active');
-                modalImg.onerror = function() {
-                    modalImg.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ctext x="50%" y="50%" text-anchor="middle" dy=".3em" fill="white" font-size="14"%3EImage not found%3C/text%3E%3C/svg%3E';
-                };
-            }
-
-            function closeLightbox() {
-                modal.classList.remove('active');
-                modalImg.src = '';
-            }
-
-            // Attach click listeners to all gallery items (re-attach after reveal because they exist)
-            function attachLightboxEvents() {
-                galleryItems.forEach(item => {
-                    item.removeEventListener('click', item._lightboxClick);
-                    const handler = () => {
-                        const img = item.querySelector('img');
-                        if (img && img.src) openLightbox(img.src);
-                    };
-                    item.addEventListener('click', handler);
-                    item._lightboxClick = handler;
-                });
-            }
-
-            attachLightboxEvents();
-
-            closeModal.addEventListener('click', closeLightbox);
-            modal.addEventListener('click', (e) => { if (e.target === modal) closeLightbox(); });
-            document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('active')) closeLightbox(); });
-        })();
-    </script>
+        // GALLERY populate + lightbox
+        const galleryContainer = document.getElementById('photoGallery');
+        const galleryImages = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.png','10.jpg','11.jpg','12.jpg','13.jpg','14.jpg','15.jpg','16.jpg','17.jpg','18.jpg','19.jpg','20.jpg','21.jpg','22.jpg','23.jpg','24.png','25.jpg','26.jpg','27.jpg','28.jpg','29.jpg','30.jpg','31.jpg','32.jpg','33.jpg','34.jpg','35.jpg','36.jpg','37.jpg','38.jpg','39.jpg','40.jpg','41.jpg','42.jpg','43.jpg','44.jpg','45.jpg'];
+        galleryImages.forEach(imgName => {
+            const div = document.createElement('div'); div.className = 'gallery-item';
+            const img = document.createElement('img'); img.src = `images/${imgName}`; img.alt = 'memory';
+            div.appendChild(img); galleryContainer.appendChild(div);
+        });
+        const modal = document.getElementById('lightboxModal'); const modalImg = document.getElementById('lightboxImg'); const closeModal = document.querySelector('.lightbox-close');
+        function attachGalleryClick() { document.querySelectorAll('.gallery-item').forEach(item => { item.addEventListener('click', () => { const img = item.querySelector('img'); if(img && img.src) { modalImg.src = img.src; modal.classList.add('active'); } }); }); }
+        attachGalleryClick();
+        closeModal.addEventListener('click', () => { modal.classList.remove('active'); modalImg.src = ''; });
+        modal.addEventListener('click', (e) => { if (e.target === modal) { modal.classList.remove('active'); modalImg.src = ''; } });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('active')) { modal.classList.remove('active'); modalImg.src = ''; } });
+    })();
+</script>
 </body>
 </html>
