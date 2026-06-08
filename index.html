@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>💍 classic photo studio · wedding gift · ambient bg music</title>
-    <!-- Google Fonts -->
+    <title>💍 classic photo studio · wedding gift · with background music</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -169,7 +167,6 @@
             text-shadow: 1px 1px 0 #ffd9d9;
         }
 
-        /* slideshow styles */
         .slideshow-container {
             position: relative;
             width: 100%;
@@ -299,7 +296,6 @@
             margin: 0.5rem 0;
         }
 
-        /* music player panel */
         .music-player {
             margin: 2rem 0 1rem;
             padding: 1rem;
@@ -311,7 +307,7 @@
         .music-player p {
             font-size: 1.2rem;
             color: #a95c6a;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             font-weight: 600;
         }
 
@@ -320,6 +316,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 12px;
+            margin-top: 10px;
         }
 
         .music-btn {
@@ -551,7 +548,7 @@
             every picture holds a story<br>here's to forever
         </div>
 
-        <!-- MUSIC PLAYER (no background toggle button, only melodies) -->
+        <!-- MUSIC PLAYER: only melody & personal audio buttons (no background controls) -->
         <div class="music-player">
             <p><i class="fas fa-music"></i> choose your melody</p>
             <div class="music-buttons">
@@ -589,7 +586,7 @@
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
 <script>
     (function() {
-        // hearts
+        // Floating hearts
         const heartContainer = document.getElementById('heartContainer');
         function createHeart() {
             const heart = document.createElement('div');
@@ -603,7 +600,7 @@
         }
         for (let i = 0; i < 25; i++) heartContainer.appendChild(createHeart());
 
-        // slideshow
+        // Slideshow
         const slides = document.getElementById('slides');
         const slidesCount = slides.children.length;
         let currentIndex = 0;
@@ -613,80 +610,39 @@
         let autoAdvance = setInterval(() => { currentIndex = (currentIndex + 1) % slidesCount; updateSlide(); }, 5000);
         function resetTimer() { clearInterval(autoAdvance); autoAdvance = setInterval(() => { currentIndex = (currentIndex + 1) % slidesCount; updateSlide(); }, 5000); }
 
-        // -------------------- BACKGROUND AMBIENT MUSIC (AUTOMATIC) --------------------
-        let bgAudioCtx = null;
-        let bgInterval = null;
+        // -------------------- BACKGROUND MUSIC (AUTO-START, NO BUTTONS) --------------------
+        let bgAudioElement = null;
         let bgActive = false;
-        let currentBgGain = null;
-        let activeBgOscillators = [];
 
-        function stopBackgroundAmbient() {
-            if (bgInterval) { clearInterval(bgInterval); bgInterval = null; }
-            if (activeBgOscillators.length) {
-                activeBgOscillators.forEach(osc => { try { osc.stop(); } catch(e) {} });
-                activeBgOscillators = [];
-            }
-            if (bgAudioCtx && bgAudioCtx.state !== 'closed') {
-                bgAudioCtx.close().catch(e=>{});
-                bgAudioCtx = null;
+        function stopBackgroundMusic() {
+            if (bgAudioElement) {
+                bgAudioElement.pause();
+                bgAudioElement.currentTime = 0;
+                bgAudioElement = null;
             }
             bgActive = false;
         }
 
-        async function startBackgroundAmbient() {
+        async function startBackgroundMusic() {
             if (bgActive) return;
-            stopBackgroundAmbient(); // clean start
-            const AudioCtx = window.AudioContext || window.webkitAudioContext;
-            if (!AudioCtx) return;
+            stopBackgroundMusic();
             try {
-                const ctx = new AudioCtx();
-                bgAudioCtx = ctx;
-                if (ctx.state === 'suspended') await ctx.resume();
-                const masterGain = ctx.createGain();
-                masterGain.gain.value = 0.12; // soft background volume
-                masterGain.connect(ctx.destination);
-                currentBgGain = masterGain;
-
-                // romantic chord progression: C - G - Am - F
-                const progressions = [
-                    { notes: [261.63, 329.63, 392.00], duration: 5000 },
-                    { notes: [196.00, 246.94, 293.66, 392.00], duration: 5000 },
-                    { notes: [220.00, 261.63, 329.63], duration: 5000 },
-                    { notes: [174.61, 220.00, 261.63, 349.23], duration: 5000 }
-                ];
-                let step = 0;
-
-                function playChord() {
-                    if (!bgAudioCtx || !bgActive) return;
-                    const now = bgAudioCtx.currentTime;
-                    const chord = progressions[step % progressions.length];
-                    const oscs = [];
-                    chord.notes.forEach(freq => {
-                        const osc = bgAudioCtx.createOscillator();
-                        const gainNode = bgAudioCtx.createGain();
-                        osc.type = 'sine';
-                        osc.frequency.value = freq;
-                        gainNode.gain.setValueAtTime(0, now);
-                        gainNode.gain.linearRampToValueAtTime(0.08, now + 0.8);
-                        gainNode.gain.exponentialRampToValueAtTime(0.0001, now + 4.2);
-                        osc.connect(gainNode);
-                        gainNode.connect(currentBgGain);
-                        osc.start(now);
-                        osc.stop(now + 4.5);
-                        oscs.push(osc);
-                    });
-                    activeBgOscillators.push(...oscs);
-                    step++;
-                }
-                playChord();
-                bgInterval = setInterval(() => { if (bgActive && bgAudioCtx) playChord(); else clearInterval(bgInterval); }, 4800);
+                // 🔽 CHANGE THIS PATH TO YOUR OWN MP3 FILE
+                bgAudioElement = new Audio('images/ehite.mp3');
+                bgAudioElement.loop = true;
+                bgAudioElement.volume = 0.3;    // soft background volume
+                await bgAudioElement.play();
                 bgActive = true;
-            } catch(e) { console.warn("bg ambient start error", e); }
+            } catch(e) {
+                console.warn("Background music could not be played. Check file path.", e);
+                bgActive = false;
+            }
         }
 
-        // stop all music (melodies, personal, background)
+        // -------------------- MELODIES & PERSONAL AUDIO (they stop background) --------------------
         let currentAudioCtx = null;
         let currentOscillators = [];
+
         function stopCurrentMelodies() {
             if (currentAudioCtx) {
                 currentOscillators.forEach(osc => { try { osc.stop(); } catch(e) {} });
@@ -695,21 +651,22 @@
                 currentOscillators = [];
             }
         }
+
         function stopAllPersonalAudio() {
             [1,2,3,4,5].forEach(i => {
                 const a = document.getElementById(`personalAudio${i}`);
                 if (a) { a.pause(); a.currentTime = 0; }
             });
         }
+
         function stopAllMusic() {
             stopCurrentMelodies();
             stopAllPersonalAudio();
-            stopBackgroundAmbient();  // background also stops when user selects something else
+            stopBackgroundMusic();   // also kill background
         }
 
-        // melody synthesizers (these will also stop background ambient)
         function playMelody(notes, baseVolume = 0.15) {
-            stopAllMusic(); // stops background + any other music
+            stopAllMusic(); // stops background + anything else
             const AudioContext = window.AudioContext || window.webkitAudioContext;
             if (!AudioContext) return;
             const audioCtx = new AudioContext();
@@ -730,13 +687,18 @@
             let time = now + 0.2;
             notes.forEach(n => { playNote(n.f, time, n.dur, n.vol || baseVolume, n.type || 'sine'); time += n.dur + 0.03; });
         }
+
         function playCanon() { playMelody([{ f:523.25,dur:0.6},{ f:587.33,dur:0.6},{ f:659.25,dur:0.6},{ f:698.46,dur:1.0},{ f:659.25,dur:0.5},{ f:587.33,dur:0.5},{ f:523.25,dur:1.2}],0.15); }
         function playWeddingMarch() { playMelody([{ f:659.25,dur:0.4},{ f:659.25,dur:0.4},{ f:659.25,dur:0.8},{ f:659.25,dur:0.4},{ f:659.25,dur:0.4},{ f:659.25,dur:0.8},{ f:659.25,dur:0.4},{ f:783.99,dur:0.6},{ f:523.25,dur:0.6},{ f:587.33,dur:0.6},{ f:659.25,dur:1.2}],0.18); }
         function playLoveTheme() { playMelody([{ f:523.25,dur:1.0,vol:0.2},{ f:587.33,dur:0.8,vol:0.2},{ f:659.25,dur:0.8,vol:0.2},{ f:698.46,dur:1.2,vol:0.22},{ f:783.99,dur:1.0,vol:0.2},{ f:698.46,dur:0.8,vol:0.2},{ f:659.25,dur:1.5,vol:0.18}],0.18); }
         function playEdSheeranStyle() { playMelody([{ f:392.00,dur:0.8,vol:0.2},{ f:493.88,dur:0.8,vol:0.2},{ f:587.33,dur:0.8,vol:0.2},{ f:523.25,dur:0.6,vol:0.18},{ f:440.00,dur:0.6,vol:0.18},{ f:392.00,dur:1.2,vol:0.22},{ f:349.23,dur:0.8,vol:0.2},{ f:392.00,dur:1.5,vol:0.25}],0.2); }
-        function playPersonalAudio(audioElement) { stopAllMusic(); audioElement.play().catch(e=>console.log); }
+        
+        function playPersonalAudio(audioElement) { 
+            stopAllMusic(); 
+            audioElement.play().catch(e=>console.log); 
+        }
 
-        // attach melody buttons
+        // Attach melody buttons
         document.getElementById('playCanon').addEventListener('click', playCanon);
         document.getElementById('playMarch').addEventListener('click', playWeddingMarch);
         document.getElementById('playLove').addEventListener('click', playLoveTheme);
@@ -748,7 +710,7 @@
         document.getElementById('playPersonal5').addEventListener('click', () => playPersonalAudio(document.getElementById('personalAudio5')));
         document.getElementById('stopMusic').addEventListener('click', stopAllMusic);
 
-        // GIFT REVEAL + auto-start background music
+        // GIFT REVEAL: start background music automatically
         const gift = document.getElementById('giftTrigger');
         const surprise = document.getElementById('surpriseBox');
         const subtitle = document.querySelector('.subtitle');
@@ -765,8 +727,8 @@
                 surprise.classList.remove('hidden'); surprise.classList.add('fade-in');
                 canvasConfetti({ particleCount: 120, spread: 80, origin: { y: 0.6 }, colors: ['#f9c7c7', '#f8d5aa', '#fbb1b1'] });
                 for (let i = 0; i < 8; i++) setTimeout(() => heartContainer.appendChild(createHeart()), i * 120);
-                // AUTO START BACKGROUND AMBIENT MUSIC
-                await startBackgroundAmbient();
+                // Start background music
+                await startBackgroundMusic();
             }, 300);
         }
         gift.addEventListener('click', revealGift);
@@ -774,7 +736,7 @@
         window.addEventListener('load', () => setTimeout(() => canvasConfetti({ particleCount: 30, spread: 45, origin: { y: 0.5 }, colors: ['#fadadd'] }), 600));
         setInterval(() => { if (heartContainer.children.length < 35) heartContainer.appendChild(createHeart()); else { heartContainer.removeChild(heartContainer.firstChild); heartContainer.appendChild(createHeart()); } }, 3000);
 
-        // GALLERY populate + lightbox
+        // PHOTO GALLERY + lightbox
         const galleryContainer = document.getElementById('photoGallery');
         const galleryImages = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.png','10.jpg','11.jpg','12.jpg','13.jpg','14.jpg','15.jpg','16.jpg','17.jpg','18.jpg','19.jpg','20.jpg','21.jpg','22.jpg','23.jpg','24.png','25.jpg','26.jpg','27.jpg','28.jpg','29.jpg','30.jpg','31.jpg','32.jpg','33.jpg','34.jpg','35.jpg','36.jpg','37.jpg','38.jpg','39.jpg','40.jpg','41.jpg','42.jpg','43.jpg','44.jpg','45.jpg'];
         galleryImages.forEach(imgName => {
