@@ -9,12 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             min-height: 100vh;
             background: linear-gradient(145deg, #fbe9f0, #f8e0e8, #fce2e2, #fde9e0, #f5e6d6);
@@ -30,41 +25,17 @@
             margin: 0;
             padding: 16px;
         }
-
         @keyframes romanticGradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
-        .hearts-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 5;
-            overflow: hidden;
-        }
-
-        .heart {
-            position: absolute;
-            bottom: -50px;
-            color: rgba(255, 182, 193, 0.5);
-            font-size: 24px;
-            animation: floatHeart 10s linear infinite;
-        }
-
-        @keyframes floatHeart {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
-            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
-        }
-
+        .hearts-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; overflow: hidden; }
+        .heart { position: absolute; bottom: -50px; color: rgba(255, 182, 193, 0.5); font-size: 24px; animation: floatHeart 10s linear infinite; }
+        @keyframes floatHeart { 0% { transform: translateY(0) rotate(0deg); opacity: 0.8; } 100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; } }
         .wedding-card {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
             border-radius: 50px 20px 50px 20px;
             box-shadow: 0 30px 50px rgba(210, 180, 140, 0.3), 0 10px 20px rgba(255, 200, 200, 0.5);
             padding: 2.5rem 2rem;
@@ -76,329 +47,46 @@
             animation: gentleFloat 1.2s ease-out;
             margin: 20px 0;
         }
-
-        @keyframes gentleFloat {
-            0% { opacity: 0; transform: scale(0.9) translateY(20px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            color: #b76e79;
-            text-shadow: 3px 3px 0 #ffe4e1, 5px 5px 0 rgba(255, 215, 215, 0.5);
-            margin-bottom: 0.3rem;
-            letter-spacing: 2px;
-        }
-
-        .subtitle {
-            font-size: 1.3rem;
-            font-weight: 300;
-            color: #8b5f65;
-            background: rgba(255, 240, 235, 0.7);
-            display: inline-block;
-            padding: 0.4rem 1.5rem;
-            border-radius: 40px;
-            margin: 1rem 0 1.8rem;
-            border: 1px solid #f5c6c6;
-        }
-
-        .gift-wrapper {
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            display: inline-block;
-            padding: 15px 35px;
-            border-radius: 120px;
-            background: rgba(255, 250, 240, 0.6);
-            margin: 15px 0 15px;
-            -webkit-tap-highlight-color: transparent;
-            border: 2px dashed #e8b4b4;
-        }
-
-        .gift-wrapper:hover {
-            transform: scale(1.1);
-        }
-
-        .gift-wrapper:active {
-            transform: scale(0.95);
-        }
-
-        .gift-icon {
-            font-size: 10rem;
-            line-height: 1;
-            color: #d4a5a5;
-            filter: drop-shadow(0 15px 10px #fcc2c2);
-            animation: gentleWobble 4s infinite;
-        }
-
-        @keyframes gentleWobble {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(5deg); }
-            75% { transform: rotate(-5deg); }
-        }
-
-        .click-hint {
-            font-size: 1.2rem;
-            color: #9b6b7c;
-            background: #fff0ed;
-            padding: 0.4rem 1.4rem;
-            border-radius: 40px;
-            display: inline-block;
-            margin: 10px 0 0;
-            font-weight: 500;
-            border: 1px dotted #dba1a1;
-        }
-
-        .surprise-content {
-            margin-top: 2rem;
-            padding: 1.8rem 1.8rem 2.5rem;
-            background: rgba(255, 250, 245, 0.9);
-            backdrop-filter: blur(4px);
-            border-radius: 70px 20px 70px 20px;
-            border: 4px solid white;
-            box-shadow: inset 0 0 30px #fff0f0, 0 20px 30px rgba(0,0,0,0.1);
-        }
-
-        .surprise-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #a95c6a;
-            margin-bottom: 1rem;
-            text-shadow: 1px 1px 0 #ffd9d9;
-        }
-
-        .slideshow-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin: 2rem auto;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
-            background: #f7d9d9;
-        }
-
-        .slides {
-            display: flex;
-            transition: transform 0.8s ease-in-out;
-        }
-
-        .slide {
-            min-width: 100%;
-            box-sizing: border-box;
-            position: relative;
-        }
-
-        .slide img, .slide .text-slide {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .text-slide {
-            background: #ffdede;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: #b76e79;
-            text-shadow: 4px 4px 0 #ffe4e1;
-            line-height: 1.2;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .slide-caption {
-            position: absolute;
-            bottom: 20px;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
-            color: white;
-            padding: 20px 15px 10px;
-            font-size: 1.2rem;
-            font-weight: 500;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .slideshow-controls {
-            margin-top: 10px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .slideshow-btn {
-            background: white;
-            border: 2px solid #e8b4b4;
-            color: #a95c6a;
-            padding: 0.5rem 1.5rem;
-            border-radius: 40px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .slideshow-btn:hover {
-            background: #fcd7d7;
-        }
-
-        .photo-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin: 2rem 0;
-        }
-
-        .gallery-item {
-            width: 200px;
-            height: 175px;
-            border-radius: 20px;
-            border: 4px solid white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            pointer-events: none;
-        }
-
-        .wedding-message {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: #4a2e35;
-            margin: 1.5rem 0 1rem;
-            line-height: 1.5;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .signature {
-            font-size: 1.3rem;
-            color: #af7b84;
-            background: #ffefef;
-            display: inline-block;
-            padding: 0.4rem 2rem;
-            border-radius: 40px;
-            font-style: italic;
-            margin: 0.5rem 0;
-        }
-
-        .music-player {
-            margin: 2rem 0 1rem;
-            padding: 1rem;
-            background: #fff6f6;
-            border-radius: 50px;
-            border: 2px solid #fbc1c1;
-        }
-
-        .music-player p {
-            font-size: 1.2rem;
-            color: #a95c6a;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-        }
-
-        .music-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 10px;
-        }
-
-        .music-btn {
-            background: white;
-            border: 2px solid #e8b4b4;
-            color: #a95c6a;
-            padding: 0.6rem 1.2rem;
-            border-radius: 40px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.05);
-        }
-
-        .music-btn:hover {
-            background: #fcd7d7;
-            transform: scale(1.03);
-        }
-
-        .stop-btn {
-            background: #ffe6e6;
-            border-color: #d88c8c;
-            color: #b15757;
-        }
-
-        .personal-audio {
-            display: none;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.8s forwards;
-        }
-
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        .lightbox-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .lightbox-modal.active {
-            display: flex;
-        }
-
-        .lightbox-img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.3);
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 2.5rem;
-            color: white;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
+        @keyframes gentleFloat { 0% { opacity: 0; transform: scale(0.9) translateY(20px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
+        h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: #b76e79; text-shadow: 3px 3px 0 #ffe4e1, 5px 5px 0 rgba(255, 215, 215, 0.5); margin-bottom: 0.3rem; letter-spacing: 2px; }
+        .subtitle { font-size: 1.3rem; font-weight: 300; color: #8b5f65; background: rgba(255, 240, 235, 0.7); display: inline-block; padding: 0.4rem 1.5rem; border-radius: 40px; margin: 1rem 0 1.8rem; border: 1px solid #f5c6c6; }
+        .gift-wrapper { cursor: pointer; transition: transform 0.3s ease; display: inline-block; padding: 15px 35px; border-radius: 120px; background: rgba(255, 250, 240, 0.6); margin: 15px 0 15px; border: 2px dashed #e8b4b4; }
+        .gift-wrapper:hover { transform: scale(1.1); }
+        .gift-wrapper:active { transform: scale(0.95); }
+        .gift-icon { font-size: 10rem; line-height: 1; color: #d4a5a5; filter: drop-shadow(0 15px 10px #fcc2c2); animation: gentleWobble 4s infinite; }
+        @keyframes gentleWobble { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(5deg); } 75% { transform: rotate(-5deg); } }
+        .click-hint { font-size: 1.2rem; color: #9b6b7c; background: #fff0ed; padding: 0.4rem 1.4rem; border-radius: 40px; display: inline-block; margin: 10px 0 0; font-weight: 500; border: 1px dotted #dba1a1; }
+        .surprise-content { margin-top: 2rem; padding: 1.8rem 1.8rem 2.5rem; background: rgba(255, 250, 245, 0.9); backdrop-filter: blur(4px); border-radius: 70px 20px 70px 20px; border: 4px solid white; box-shadow: inset 0 0 30px #fff0f0, 0 20px 30px rgba(0,0,0,0.1); }
+        .surprise-content h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #a95c6a; margin-bottom: 1rem; text-shadow: 1px 1px 0 #ffd9d9; }
+        .slideshow-container { position: relative; width: 100%; max-width: 600px; margin: 2rem auto; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 30px rgba(0,0,0,0.15); background: #f7d9d9; }
+        .slides { display: flex; transition: transform 0.8s ease-in-out; }
+        .slide { min-width: 100%; position: relative; }
+        .slide img, .slide .text-slide { width: 100%; height: 500px; object-fit: cover; display: block; }
+        .text-slide { background: #ffdede; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; color: #b76e79; text-shadow: 4px 4px 0 #ffe4e1; line-height: 1.2; padding: 20px; text-align: center; }
+        .slide-caption { position: absolute; bottom: 20px; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.4), transparent); color: white; padding: 20px 15px 10px; font-size: 1.2rem; font-weight: 500; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .slideshow-controls { margin-top: 10px; display: flex; justify-content: center; gap: 15px; }
+        .slideshow-btn { background: white; border: 2px solid #e8b4b4; color: #a95c6a; padding: 0.5rem 1.5rem; border-radius: 40px; font-size: 1rem; cursor: pointer; transition: all 0.2s; }
+        .slideshow-btn:hover { background: #fcd7d7; }
+        .photo-gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 2rem 0; }
+        .gallery-item { width: 200px; height: 175px; border-radius: 20px; border: 4px solid white; box-shadow: 0 10px 20px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s; cursor: pointer; }
+        .gallery-item:hover { transform: scale(1.05); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+        .wedding-message { font-size: 1.5rem; font-weight: 400; color: #4a2e35; margin: 1.5rem 0 1rem; line-height: 1.5; font-family: 'Playfair Display', serif; }
+        .signature { font-size: 1.3rem; color: #af7b84; background: #ffefef; display: inline-block; padding: 0.4rem 2rem; border-radius: 40px; font-style: italic; margin: 0.5rem 0; }
+        .music-player { margin: 2rem 0 1rem; padding: 1rem; background: #fff6f6; border-radius: 50px; border: 2px solid #fbc1c1; }
+        .music-player p { font-size: 1.2rem; color: #a95c6a; margin-bottom: 0.8rem; font-weight: 600; }
+        .music-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 10px; }
+        .music-btn { background: white; border: 2px solid #e8b4b4; color: #a95c6a; padding: 0.6rem 1.2rem; border-radius: 40px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.05); }
+        .music-btn:hover { background: #fcd7d7; transform: scale(1.03); }
+        .stop-btn { background: #ffe6e6; border-color: #d88c8c; color: #b15757; }
+        .personal-audio { display: none; }
+        .hidden { display: none; }
+        .fade-in { animation: fadeInUp 0.8s forwards; }
+        @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+        .lightbox-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; cursor: pointer; }
+        .lightbox-modal.active { display: flex; }
+        .lightbox-img { max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 10px; box-shadow: 0 0 30px rgba(0,0,0,0.3); }
+        .lightbox-close { position: absolute; top: 20px; right: 30px; font-size: 2.5rem; color: white; cursor: pointer; transition: 0.2s; }
         @media (max-width: 600px) {
             h1 { font-size: 2.2rem; }
             .subtitle { font-size: 1.1rem; }
@@ -420,13 +108,9 @@
     <div class="subtitle">classic photo studio presents</div>
 
     <div id="giftTrigger" class="gift-wrapper" role="button" tabindex="0" aria-label="Open wedding gift">
-        <div class="gift-icon">
-            <i class="fas fa-gem"></i>
-        </div>
+        <div class="gift-icon"><i class="fas fa-gem"></i></div>
     </div>
-    <div class="click-hint">
-        <i class="fas fa-mouse-pointer"></i> tap to open your gift
-    </div>
+    <div class="click-hint"><i class="fas fa-mouse-pointer"></i> tap to open your gift</div>
 
     <div id="surpriseBox" class="surprise-content hidden">
         <h2>💞 classic photo studio</h2>
@@ -544,11 +228,9 @@
         <h3 style="font-family: 'Playfair Display'; color: #a95c6a; margin: 2rem 0 1rem;">📸 our memories</h3>
         <div class="photo-gallery" id="photoGallery"></div>
 
-        <div class="wedding-message">
-            every picture holds a story<br>here's to forever
-        </div>
+        <div class="wedding-message">every picture holds a story<br>here's to forever</div>
 
-        <!-- MUSIC PLAYER: only melody & personal audio buttons (no background controls) -->
+        <!-- MUSIC PLAYER (only melodies & personal audio, no background controls) -->
         <div class="music-player">
             <p><i class="fas fa-music"></i> choose your melody</p>
             <div class="music-buttons">
@@ -565,16 +247,14 @@
             </div>
         </div>
 
-        <!-- hidden personal audio files -->
+        <!-- hidden personal audio files (adjust paths as needed) -->
         <audio id="personalAudio1" class="personal-audio"><source src="images/1.mp3" type="audio/mpeg"></audio>
         <audio id="personalAudio2" class="personal-audio"><source src="images/ehite.mp3" type="audio/mpeg"></audio>
         <audio id="personalAudio3" class="personal-audio"><source src="images/Tilahun.mp3" type="audio/mpeg"></audio>
         <audio id="personalAudio4" class="personal-audio"><source src="images/Tsegaye.mp3" type="audio/mpeg"></audio>
         <audio id="personalAudio5" class="personal-audio"><source src="images/kana.mp3" type="audio/mpeg"></audio>
 
-        <div class="signature">
-            <i class="fas fa-heart" style="color:#f18b8b;"></i> with all my love
-        </div>
+        <div class="signature"><i class="fas fa-heart" style="color:#f18b8b;"></i> with all my love</div>
     </div>
 </div>
 
@@ -610,7 +290,7 @@
         let autoAdvance = setInterval(() => { currentIndex = (currentIndex + 1) % slidesCount; updateSlide(); }, 5000);
         function resetTimer() { clearInterval(autoAdvance); autoAdvance = setInterval(() => { currentIndex = (currentIndex + 1) % slidesCount; updateSlide(); }, 5000); }
 
-        // -------------------- BACKGROUND MUSIC (AUTO-START, NO BUTTONS) --------------------
+        // -------------------- BACKGROUND MUSIC (EXTERNAL MP3, NO BUTTONS) --------------------
         let bgAudioElement = null;
         let bgActive = false;
 
@@ -627,19 +307,29 @@
             if (bgActive) return;
             stopBackgroundMusic();
             try {
-                // 🔽 CHANGE THIS PATH TO YOUR OWN MP3 FILE
-                bgAudioElement = new Audio('images/ehite.mp3');
+                // ⚠️ IMPORTANT: Replace the path below with the actual URL of your MP3 file.
+                // Example: 'images/my-wedding-song.mp3' or 'https://example.com/music/background.mp3'
+                const musicFile = 'images/ehite.mp3';   // <-- CHANGE THIS LINE
+                bgAudioElement = new Audio(musicFile);
                 bgAudioElement.loop = true;
-                bgAudioElement.volume = 0.3;    // soft background volume
-                await bgAudioElement.play();
+                bgAudioElement.volume = 0.3;
+                // Wait for the audio to be ready (optional)
+                bgAudioElement.addEventListener('canplaythrough', () => {
+                    bgAudioElement.play().catch(e => console.warn('Play failed:', e));
+                }, { once: true });
+                // If the file is already cached, play immediately
+                if (bgAudioElement.readyState >= 2) {
+                    await bgAudioElement.play();
+                }
                 bgActive = true;
+                console.log('Background music started successfully');
             } catch(e) {
-                console.warn("Background music could not be played. Check file path.", e);
-                bgActive = false;
+                console.error('Background music error:', e);
+                // Optional: show a small non-intrusive hint in console but not on screen
             }
         }
 
-        // -------------------- MELODIES & PERSONAL AUDIO (they stop background) --------------------
+        // -------------------- MELODIES & PERSONAL AUDIO (stop background) --------------------
         let currentAudioCtx = null;
         let currentOscillators = [];
 
@@ -662,11 +352,11 @@
         function stopAllMusic() {
             stopCurrentMelodies();
             stopAllPersonalAudio();
-            stopBackgroundMusic();   // also kill background
+            stopBackgroundMusic();
         }
 
         function playMelody(notes, baseVolume = 0.15) {
-            stopAllMusic(); // stops background + anything else
+            stopAllMusic(); // kills background + any other sound
             const AudioContext = window.AudioContext || window.webkitAudioContext;
             if (!AudioContext) return;
             const audioCtx = new AudioContext();
@@ -710,7 +400,7 @@
         document.getElementById('playPersonal5').addEventListener('click', () => playPersonalAudio(document.getElementById('personalAudio5')));
         document.getElementById('stopMusic').addEventListener('click', stopAllMusic);
 
-        // GIFT REVEAL: start background music automatically
+        // GIFT REVEAL → auto-start background music
         const gift = document.getElementById('giftTrigger');
         const surprise = document.getElementById('surpriseBox');
         const subtitle = document.querySelector('.subtitle');
@@ -727,7 +417,6 @@
                 surprise.classList.remove('hidden'); surprise.classList.add('fade-in');
                 canvasConfetti({ particleCount: 120, spread: 80, origin: { y: 0.6 }, colors: ['#f9c7c7', '#f8d5aa', '#fbb1b1'] });
                 for (let i = 0; i < 8; i++) setTimeout(() => heartContainer.appendChild(createHeart()), i * 120);
-                // Start background music
                 await startBackgroundMusic();
             }, 300);
         }
@@ -736,7 +425,7 @@
         window.addEventListener('load', () => setTimeout(() => canvasConfetti({ particleCount: 30, spread: 45, origin: { y: 0.5 }, colors: ['#fadadd'] }), 600));
         setInterval(() => { if (heartContainer.children.length < 35) heartContainer.appendChild(createHeart()); else { heartContainer.removeChild(heartContainer.firstChild); heartContainer.appendChild(createHeart()); } }, 3000);
 
-        // PHOTO GALLERY + lightbox
+        // GALLERY
         const galleryContainer = document.getElementById('photoGallery');
         const galleryImages = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.png','10.jpg','11.jpg','12.jpg','13.jpg','14.jpg','15.jpg','16.jpg','17.jpg','18.jpg','19.jpg','20.jpg','21.jpg','22.jpg','23.jpg','24.png','25.jpg','26.jpg','27.jpg','28.jpg','29.jpg','30.jpg','31.jpg','32.jpg','33.jpg','34.jpg','35.jpg','36.jpg','37.jpg','38.jpg','39.jpg','40.jpg','41.jpg','42.jpg','43.jpg','44.jpg','45.jpg'];
         galleryImages.forEach(imgName => {
