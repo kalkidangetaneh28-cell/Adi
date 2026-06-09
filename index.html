@@ -295,75 +295,75 @@
         // It will ALWAYS work because it doesn't depend on external files.
         // If you have your own MP3, uncomment the alternative code below.
 
-        let bgAudioCtx = null;
-        let bgInterval = null;
-        let bgActive = false;
-        let bgGain = null;
+        // let bgAudioCtx = null;
+        // let bgInterval = null;
+        // let bgActive = false;
+        // let bgGain = null;
 
-        function stopBackgroundMusic() {
-            if (bgInterval) { clearInterval(bgInterval); bgInterval = null; }
-            if (bgAudioCtx && bgAudioCtx.state !== 'closed') {
-                // we don't close, just stop oscillators? easier: close and recreate later
-                bgAudioCtx.close().catch(e=>{});
-                bgAudioCtx = null;
-            }
-            bgActive = false;
-        }
+        // function stopBackgroundMusic() {
+        //     if (bgInterval) { clearInterval(bgInterval); bgInterval = null; }
+        //     if (bgAudioCtx && bgAudioCtx.state !== 'closed') {
+        //         // we don't close, just stop oscillators? easier: close and recreate later
+        //         bgAudioCtx.close().catch(e=>{});
+        //         bgAudioCtx = null;
+        //     }
+        //     bgActive = false;
+        // }
 
-        async function startBackgroundMusic() {
-            if (bgActive) return;
-            stopBackgroundMusic();
-            try {
-                const AudioCtx = window.AudioContext || window.webkitAudioContext;
-                if (!AudioCtx) return;
-                const ctx = new AudioCtx();
-                bgAudioCtx = ctx;
-                if (ctx.state === 'suspended') await ctx.resume();
+        // async function startBackgroundMusic() {
+        //     if (bgActive) return;
+        //     stopBackgroundMusic();
+        //     try {
+        //         const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        //         if (!AudioCtx) return;
+        //         const ctx = new AudioCtx();
+        //         bgAudioCtx = ctx;
+        //         if (ctx.state === 'suspended') await ctx.resume();
 
-                const masterGain = ctx.createGain();
-                masterGain.gain.value = 0.15;
-                masterGain.connect(ctx.destination);
-                bgGain = masterGain;
+        //         const masterGain = ctx.createGain();
+        //         masterGain.gain.value = 0.15;
+        //         masterGain.connect(ctx.destination);
+        //         bgGain = masterGain;
 
-                // Romantic chord progression: C - G - Am - F
-                const chords = [
-                    { notes: [261.63, 329.63, 392.00], dur: 4800 },
-                    { notes: [196.00, 246.94, 293.66, 392.00], dur: 4800 },
-                    { notes: [220.00, 261.63, 329.63], dur: 4800 },
-                    { notes: [174.61, 220.00, 261.63, 349.23], dur: 4800 }
-                ];
-                let step = 0;
+        //         // Romantic chord progression: C - G - Am - F
+        //         const chords = [
+        //             { notes: [261.63, 329.63, 392.00], dur: 4800 },
+        //             { notes: [196.00, 246.94, 293.66, 392.00], dur: 4800 },
+        //             { notes: [220.00, 261.63, 329.63], dur: 4800 },
+        //             { notes: [174.61, 220.00, 261.63, 349.23], dur: 4800 }
+        //         ];
+        //         let step = 0;
 
-                function playChord() {
-                    if (!bgAudioCtx || !bgActive) return;
-                    const now = bgAudioCtx.currentTime;
-                    const chord = chords[step % chords.length];
-                    chord.notes.forEach(freq => {
-                        const osc = bgAudioCtx.createOscillator();
-                        const gainNode = bgAudioCtx.createGain();
-                        osc.type = 'sine';
-                        osc.frequency.value = freq;
-                        gainNode.gain.setValueAtTime(0, now);
-                        gainNode.gain.linearRampToValueAtTime(0.1, now + 0.6);
-                        gainNode.gain.exponentialRampToValueAtTime(0.0001, now + 3.5);
-                        osc.connect(gainNode);
-                        gainNode.connect(bgGain);
-                        osc.start(now);
-                        osc.stop(now + 4.2);
-                    });
-                    step++;
-                }
-                playChord();
-                bgInterval = setInterval(() => { if (bgActive && bgAudioCtx) playChord(); else clearInterval(bgInterval); }, 4700);
-                bgActive = true;
-                console.log('✅ Synthetic background music started.');
-            } catch(e) {
-                console.error('Background music error:', e);
-            }
-        }
+        //         function playChord() {
+        //             if (!bgAudioCtx || !bgActive) return;
+        //             const now = bgAudioCtx.currentTime;
+        //             const chord = chords[step % chords.length];
+        //             chord.notes.forEach(freq => {
+        //                 const osc = bgAudioCtx.createOscillator();
+        //                 const gainNode = bgAudioCtx.createGain();
+        //                 osc.type = 'sine';
+        //                 osc.frequency.value = freq;
+        //                 gainNode.gain.setValueAtTime(0, now);
+        //                 gainNode.gain.linearRampToValueAtTime(0.1, now + 0.6);
+        //                 gainNode.gain.exponentialRampToValueAtTime(0.0001, now + 3.5);
+        //                 osc.connect(gainNode);
+        //                 gainNode.connect(bgGain);
+        //                 osc.start(now);
+        //                 osc.stop(now + 4.2);
+        //             });
+        //             step++;
+        //         }
+        //         playChord();
+        //         bgInterval = setInterval(() => { if (bgActive && bgAudioCtx) playChord(); else clearInterval(bgInterval); }, 4700);
+        //         bgActive = true;
+        //         console.log('✅ Synthetic background music started.');
+        //     } catch(e) {
+        //         console.error('Background music error:', e);
+        //     }
+        // }
 
         // ========== ALTERNATIVE: Use your own MP3 (uncomment and comment synthetic version above) ==========
-        /*
+        
         let bgAudioElement = null;
         function stopBackgroundMusic() {
             if (bgAudioElement) { bgAudioElement.pause(); bgAudioElement.currentTime = 0; bgAudioElement = null; }
@@ -382,7 +382,7 @@
                 console.log('✅ MP3 background started');
             } catch(e) { console.error('MP3 background failed:', e); }
         }
-        */
+        
 
         // -------------------- MELODIES & PERSONAL AUDIO (stop background) --------------------
         let currentAudioCtx = null;
