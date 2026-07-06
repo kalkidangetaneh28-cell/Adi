@@ -1,16 +1,17 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>💍 classic photo studio · wedding gift</title>
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
     <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
+        /* ── reset & base ── */
         * {
             margin: 0;
             padding: 0;
@@ -34,9 +35,15 @@
         }
 
         @keyframes romanticGradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .hearts-bg {
@@ -59,8 +66,14 @@
         }
 
         @keyframes floatHeart {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
-            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-120vh) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         .wedding-card {
@@ -80,8 +93,14 @@
         }
 
         @keyframes gentleFloat {
-            0% { opacity: 0; transform: scale(0.9) translateY(20px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
+            0% {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
         }
 
         h1 {
@@ -120,7 +139,6 @@
         .gift-wrapper:hover {
             transform: scale(1.1);
         }
-
         .gift-wrapper:active {
             transform: scale(0.95);
         }
@@ -134,9 +152,16 @@
         }
 
         @keyframes gentleWobble {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(5deg); }
-            75% { transform: rotate(-5deg); }
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(5deg);
+            }
+            75% {
+                transform: rotate(-5deg);
+            }
         }
 
         .click-hint {
@@ -158,7 +183,7 @@
             backdrop-filter: blur(4px);
             border-radius: 70px 20px 70px 20px;
             border: 4px solid white;
-            box-shadow: inset 0 0 30px #fff0f0, 0 20px 30px rgba(0,0,0,0.1);
+            box-shadow: inset 0 0 30px #fff0f0, 0 20px 30px rgba(0, 0, 0, 0.1);
         }
 
         .surprise-content h2 {
@@ -169,7 +194,7 @@
             text-shadow: 1px 1px 0 #ffd9d9;
         }
 
-        /* slideshow styles */
+        /* ── slideshow ── */
         .slideshow-container {
             position: relative;
             width: 100%;
@@ -177,7 +202,7 @@
             margin: 2rem auto;
             border-radius: 30px;
             overflow: hidden;
-            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
             background: #f7d9d9;
         }
 
@@ -192,7 +217,8 @@
             position: relative;
         }
 
-        .slide img, .slide .text-slide {
+        .slide img,
+        .slide .text-slide {
             width: 100%;
             height: 500px;
             object-fit: cover;
@@ -219,12 +245,12 @@
             bottom: 20px;
             left: 0;
             width: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
             color: white;
             padding: 20px 15px 10px;
             font-size: 1.2rem;
             font-weight: 500;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .slideshow-controls {
@@ -249,12 +275,12 @@
             background: #fcd7d7;
         }
 
-        /* video section (currently commented out in HTML) */
+        /* ── video ── */
         .video-container {
             margin: 2rem 0;
             border-radius: 30px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             background: #ffe4e1;
         }
 
@@ -272,7 +298,7 @@
             font-weight: 500;
         }
 
-        /* photo gallery grid */
+        /* ── gallery ── */
         .photo-gallery {
             display: flex;
             flex-wrap: wrap;
@@ -286,7 +312,7 @@
             height: 175px;
             border-radius: 20px;
             border: 4px solid white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             transition: transform 0.3s;
         }
@@ -321,7 +347,7 @@
             margin: 0.5rem 0;
         }
 
-        /* music player */
+        /* ── music player ── */
         .music-player {
             margin: 2rem 0 1rem;
             padding: 1rem;
@@ -357,7 +383,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
         }
 
         .music-btn:hover {
@@ -371,7 +397,6 @@
             color: #b15757;
         }
 
-        /* hidden audio elements */
         .personal-audio {
             display: none;
         }
@@ -385,11 +410,16 @@
         }
 
         @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* note for customization */
         .custom-note {
             background: #fffacd;
             font-size: 0.9rem;
@@ -407,14 +437,33 @@
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; }
-            .subtitle { font-size: 1.1rem; }
-            .gift-icon { font-size: 7rem; }
-            .surprise-content h2 { font-size: 2rem; }
-            .text-slide { font-size: 2rem; }
-            .slide img, .slide .text-slide { height: 250px; }
-            .gallery-item { width: 120px; height: 120px; }
-            .music-btn { padding: 0.5rem 1rem; font-size: 0.9rem; }
+            h1 {
+                font-size: 2.2rem;
+            }
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            .gift-icon {
+                font-size: 7rem;
+            }
+            .surprise-content h2 {
+                font-size: 2rem;
+            }
+            .text-slide {
+                font-size: 2rem;
+            }
+            .slide img,
+            .slide .text-slide {
+                height: 250px;
+            }
+            .gallery-item {
+                width: 120px;
+                height: 120px;
+            }
+            .music-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -438,422 +487,379 @@
         <div id="surpriseBox" class="surprise-content hidden">
             <h2>💞 classic photo studio</h2>
 
-            <!-- SLIDESHOW (VIDEO-LIKE) -->
+            <!-- ─── SLIDESHOW ─── -->
             <div class="slideshow-container">
                 <div class="slides" id="slides">
-                    <!-- Slide 1: CLASSIC PHOTO STUDIO text slide -->
+                    <!-- text slide -->
                     <div class="slide">
-                        <div class="text-slide">
-                            CLASSIC<br>PHOTO STUDIO
-                        </div>
+                        <div class="text-slide">CLASSIC<br />PHOTO STUDIO</div>
                         <div class="slide-caption">✨ our journey begins</div>
                     </div>
-                    <!-- All your image slides (cleaned, no <var> tags) -->
-                    <!-- <div class="slide"><img src="images/1.jpg" alt="photo 1"><div class="slide-caption">💕 you & me</div></div>
-                    <div class="slide"><img src="images/2.jpg" alt="photo 2"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/3.jpg" alt="photo 3"><div class="slide-caption">🌹 forever love</div></div> -->
-                    <div class="slide"><img src="images/4.jpg" alt="photo 4"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/5.jpg" alt="photo 5"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/6.jpg" alt="photo 6"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/7.jpg" alt="photo 7"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/8.jpg" alt="photo 8"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/9.png" alt="photo 9"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/10.jpg" alt="photo 10"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/11.jpg" alt="photo 11"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/12.jpg" alt="photo 12"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/13.jpg" alt="photo 13"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/14.jpg" alt="photo 14"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/15.jpg" alt="photo 15"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/16.jpg" alt="photo 16"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/17.jpg" alt="photo 17"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/18.jpg" alt="photo 18"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/19.jpg" alt="photo 19"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/20.jpg" alt="photo 20"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/21.jpg" alt="photo 21"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/22.jpg" alt="photo 22"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/23.jpg" alt="photo 23"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/24.png" alt="photo 24"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/25.jpg" alt="photo 25"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/26.jpg" alt="photo 26"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/27.jpg" alt="photo 27"><div class="slide-caption">💕 you & me</div></div>
-                    <div class="slide"><img src="images/28.jpg" alt="photo 28"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/29.jpg" alt="photo 29"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/30.jpg" alt="photo 30"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/31.jpg" alt="photo 31"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/32.png" alt="photo 32"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/33.jpg" alt="photo 33"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/34.jpg" alt="photo 34"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/35.jpg" alt="photo 35"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/36.jpg" alt="photo 36"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/37.jpg" alt="photo 37"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/38.jpg" alt="photo 38"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/39.jpg" alt="photo 39"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/40.jpg" alt="photo 40"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/41.jpg" alt="photo 41"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/42.jpg" alt="photo 42"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/43.jpg" alt="photo 43"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/44.jpg" alt="photo 44"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/45.jpg" alt="photo 45"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/46.jpg" alt="photo 46"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/47.jpg" alt="photo 47"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/48.jpg" alt="photo 48"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/49.jpg" alt="photo 49"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/50.jpg" alt="photo 50"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/51.jpg" alt="photo 51"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/52.jpg" alt="photo 52"><div class="slide-caption">💕 you & me</div></div>
-                    <div class="slide"><img src="images/53.jpg" alt="photo 53"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/54.jpg" alt="photo 54"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/55.jpg" alt="photo 55"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/56.jpg" alt="photo 56"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/57.png" alt="photo 57"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/58.jpg" alt="photo 58"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/59.1.JPG" alt="photo 59"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/59.JPG" alt="photo 59"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/60.JPG" alt="photo 60"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/61.JPG" alt="photo 71"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/62.JPG" alt="photo 72"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/63.JPG" alt="photo 73"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/64.JPG" alt="photo 74"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/65.JPG" alt="photo 75"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/66.JPG" alt="photo 76"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/67.JPG" alt="photo 77"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/68.JPG" alt="photo 78"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/69.JPG" alt="photo 79"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/70.JPG" alt="photo 70"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/71.JPG" alt="photo 71"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/72.JPG" alt="photo 72"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/73.JPG" alt="photo 73"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/74.JPG" alt="photo 74"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/75.JPG" alt="photo 75"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/76.JPG" alt="photo 76"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/77.JPG" alt="photo 77"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/78.JPG" alt="photo 78"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/79.JPG" alt="photo 79"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/80.JPG" alt="photo 80"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/81.JPG" alt="photo 81"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/82.JPG" alt="photo 82"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/83.JPG" alt="photo 83"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/84.JPG" alt="photo 84"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/85.1.JPG" alt="photo 59"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/85.JPG" alt="photo 85"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/86.JPG" alt="photo 86"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/87.JPG" alt="photo 87"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/88.JPG" alt="photo 88"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/89.JPG" alt="photo 89"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/90.JPG" alt="photo 90"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/91.JPG" alt="photo 91"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/92.JPG" alt="photo 92"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/93.JPG" alt="photo 93"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/94.JPG" alt="photo 94"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/95.JPG" alt="photo 95"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/96.JPG" alt="photo 96"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/97.JPG" alt="photo 97"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/98.JPG" alt="photo 98"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/99.JPG" alt="photo 99"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/100.JPG" alt="photo 100"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/101.JPG" alt="photo 11"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/102.JPG" alt="photo 12"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/103.JPG" alt="photo 13"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/104.JPG" alt="photo 14"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/105.JPG" alt="photo 15"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/106.JPG" alt="photo 16"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/107.JPG" alt="photo 17"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/108.JPG" alt="photo 18"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/109.JPG" alt="photo 19"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/110.JPG" alt="photo 11"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/111.JPG" alt="photo 11"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/112.JPG" alt="photo 12"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/113.JPG" alt="photo 13"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/114.1.JPG" alt="photo 59"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/114.JPG" alt="photo 14"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/115.JPG" alt="photo 15"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/116.JPG" alt="photo 16"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/117.JPG" alt="photo 17"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/118.JPG" alt="photo 18"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/119.JPG" alt="photo 19"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/120.JPG" alt="photo 20"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/121.JPG" alt="photo 21"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/122.JPG" alt="photo 22"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/123.JPG" alt="photo 23"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/124.JPG" alt="photo 24"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/125.JPG" alt="photo 25"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/126.JPG" alt="photo 26"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/127.JPG" alt="photo 27"><div class="slide-caption">💕 you & me</div></div>
-                    <div class="slide"><img src="images/128.JPG" alt="photo 28"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/129.JPG" alt="photo 29"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/130.JPG" alt="photo 30"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/131.JPG" alt="photo 31"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/132.JPG" alt="photo 32"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/133.JPG" alt="photo 33"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/134.JPG" alt="photo 34"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/135.JPG" alt="photo 35"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/136.JPG" alt="photo 36"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/137.JPG" alt="photo 37"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/138.JPG" alt="photo 38"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/139.JPG" alt="photo 39"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/140.JPG" alt="photo 40"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/141.JPG" alt="photo 41"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/142.JPG" alt="photo 42"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/143.JPG" alt="photo 43"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/144.JPG" alt="photo 44"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/145.JPG" alt="photo 45"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/146.JPG" alt="photo 46"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/147.JPG" alt="photo 47"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/148.JPG" alt="photo 48"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/149.JPG" alt="photo 49"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/150.JPG" alt="photo 50"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/151.JPG" alt="photo 51"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/152.JPG" alt="photo 52"><div class="slide-caption">💕 you & me</div></div>
-                    <div class="slide"><img src="images/153.JPG" alt="photo 53"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/154.JPG" alt="photo 54"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/155.JPG" alt="photo 55"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/156.JPG" alt="photo 56"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/157.JPG" alt="photo 57"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/158.JPG" alt="photo 58"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/159.JPG" alt="photo 59"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/160.JPG" alt="photo 60"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/161.JPG" alt="photo 71"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/162.JPG" alt="photo 72"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/163.JPG" alt="photo 73"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/164.JPG" alt="photo 74"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/165.JPG" alt="photo 75"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/166.JPG" alt="photo 76"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/167.JPG" alt="photo 77"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/168.JPG" alt="photo 78"><div class="slide-caption">🌹 forever love</div></div>
-                    <!-- <div class="slide"><img src="images/169.jpg" alt="photo 79"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/170.jpg" alt="photo 70"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/71.jpg" alt="photo 71"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/72.jpg" alt="photo 72"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/73.jpg" alt="photo 73"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/74.jpg" alt="photo 74"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/75.jpg" alt="photo 75"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/76.jpg" alt="photo 76"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/77.jpg" alt="photo 77"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/78.jpg" alt="photo 78"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/79.jpg" alt="photo 79"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/80.jpg" alt="photo 80"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/81.jpg" alt="photo 81"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/82.jpg" alt="photo 82"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/83.jpg" alt="photo 83"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/84.jpg" alt="photo 84"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/85.jpg" alt="photo 85"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/86.jpg" alt="photo 86"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/87.jpg" alt="photo 87"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/88.jpg" alt="photo 88"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/89.jpg" alt="photo 89"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/90.jpg" alt="photo 90"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/91.jpg" alt="photo 91"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/92.jpg" alt="photo 92"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/93.jpg" alt="photo 93"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/94.jpg" alt="photo 94"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/95.jpg" alt="photo 95"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/96.jpg" alt="photo 96"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/97.jpg" alt="photo 97"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/98.jpg" alt="photo 98"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/99.jpg" alt="photo 99"><div class="slide-caption">🌹 forever love</div></div>
-                    <div class="slide"><img src="images/100.jpg" alt="photo 100"><div class="slide-caption">🌹 forever love</div></div> -->
+                    <!-- images 4–58 (lowercase .jpg / .png) -->
+                    <div class="slide"><img src="images/4.jpg" alt="photo 4" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/5.jpg" alt="photo 5" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/6.jpg" alt="photo 6" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/7.jpg" alt="photo 7" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/8.jpg" alt="photo 8" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/9.png" alt="photo 9" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/10.jpg" alt="photo 10" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/11.jpg" alt="photo 11" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/12.jpg" alt="photo 12" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/13.jpg" alt="photo 13" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/14.jpg" alt="photo 14" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/15.jpg" alt="photo 15" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/16.jpg" alt="photo 16" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/17.jpg" alt="photo 17" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/18.jpg" alt="photo 18" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/19.jpg" alt="photo 19" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/20.jpg" alt="photo 20" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/21.jpg" alt="photo 21" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/22.jpg" alt="photo 22" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/23.jpg" alt="photo 23" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/24.png" alt="photo 24" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/25.jpg" alt="photo 25" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/26.jpg" alt="photo 26" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/27.jpg" alt="photo 27" /><div class="slide-caption">💕 you &amp; me</div></div>
+                    <div class="slide"><img src="images/28.jpg" alt="photo 28" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/29.jpg" alt="photo 29" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/30.jpg" alt="photo 30" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/31.jpg" alt="photo 31" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/32.png" alt="photo 32" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/33.jpg" alt="photo 33" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/34.jpg" alt="photo 34" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/35.jpg" alt="photo 35" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/36.jpg" alt="photo 36" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/37.jpg" alt="photo 37" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/38.jpg" alt="photo 38" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/39.jpg" alt="photo 39" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/40.jpg" alt="photo 40" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/41.jpg" alt="photo 41" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/42.jpg" alt="photo 42" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/43.jpg" alt="photo 43" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/44.jpg" alt="photo 44" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/45.jpg" alt="photo 45" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/46.jpg" alt="photo 46" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/47.jpg" alt="photo 47" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/48.jpg" alt="photo 48" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/49.jpg" alt="photo 49" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/50.jpg" alt="photo 50" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/51.jpg" alt="photo 51" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/52.jpg" alt="photo 52" /><div class="slide-caption">💕 you &amp; me</div></div>
+                    <div class="slide"><img src="images/53.jpg" alt="photo 53" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/54.jpg" alt="photo 54" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/55.jpg" alt="photo 55" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/56.jpg" alt="photo 56" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/57.png" alt="photo 57" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/58.jpg" alt="photo 58" /><div class="slide-caption">🌹 forever love</div></div>
+
+                    <!-- ─── images 59 → 168: now all .JPG (uppercase) ─── -->
+                    <div class="slide"><img src="images/59.1.JPG" alt="photo 59" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/59.JPG" alt="photo 59" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/60.JPG" alt="photo 60" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/61.JPG" alt="photo 71" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/62.JPG" alt="photo 72" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/63.JPG" alt="photo 73" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/64.JPG" alt="photo 74" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/65.JPG" alt="photo 75" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/66.JPG" alt="photo 76" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/67.JPG" alt="photo 77" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/68.JPG" alt="photo 78" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/69.JPG" alt="photo 79" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/70.JPG" alt="photo 70" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/71.JPG" alt="photo 71" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/72.JPG" alt="photo 72" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/73.JPG" alt="photo 73" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/74.JPG" alt="photo 74" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/75.JPG" alt="photo 75" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/76.JPG" alt="photo 76" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/77.JPG" alt="photo 77" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/78.JPG" alt="photo 78" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/79.JPG" alt="photo 79" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/80.JPG" alt="photo 80" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/81.JPG" alt="photo 81" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/82.JPG" alt="photo 82" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/83.JPG" alt="photo 83" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/84.JPG" alt="photo 84" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/85.1.JPG" alt="photo 59" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/85.JPG" alt="photo 85" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/86.JPG" alt="photo 86" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/87.JPG" alt="photo 87" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/88.JPG" alt="photo 88" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/89.JPG" alt="photo 89" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/90.JPG" alt="photo 90" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/91.JPG" alt="photo 91" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/92.JPG" alt="photo 92" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/93.JPG" alt="photo 93" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/94.JPG" alt="photo 94" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/95.JPG" alt="photo 95" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/96.JPG" alt="photo 96" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/97.JPG" alt="photo 97" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/98.JPG" alt="photo 98" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/99.JPG" alt="photo 99" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/100.JPG" alt="photo 100" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/101.JPG" alt="photo 11" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/102.JPG" alt="photo 12" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/103.JPG" alt="photo 13" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/104.JPG" alt="photo 14" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/105.JPG" alt="photo 15" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/106.JPG" alt="photo 16" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/107.JPG" alt="photo 17" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/108.JPG" alt="photo 18" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/109.JPG" alt="photo 19" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/110.JPG" alt="photo 11" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/111.JPG" alt="photo 11" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/112.JPG" alt="photo 12" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/113.JPG" alt="photo 13" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/114.1.JPG" alt="photo 59" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/114.JPG" alt="photo 14" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/115.JPG" alt="photo 15" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/116.JPG" alt="photo 16" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/117.JPG" alt="photo 17" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/118.JPG" alt="photo 18" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/119.JPG" alt="photo 19" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/120.JPG" alt="photo 20" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/121.JPG" alt="photo 21" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/122.JPG" alt="photo 22" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/123.JPG" alt="photo 23" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/124.JPG" alt="photo 24" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/125.JPG" alt="photo 25" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/126.JPG" alt="photo 26" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/127.JPG" alt="photo 27" /><div class="slide-caption">💕 you &amp; me</div></div>
+                    <div class="slide"><img src="images/128.JPG" alt="photo 28" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/129.JPG" alt="photo 29" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/130.JPG" alt="photo 30" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/131.JPG" alt="photo 31" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/132.JPG" alt="photo 32" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/133.JPG" alt="photo 33" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/134.JPG" alt="photo 34" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/135.JPG" alt="photo 35" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/136.JPG" alt="photo 36" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/137.JPG" alt="photo 37" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/138.JPG" alt="photo 38" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/139.JPG" alt="photo 39" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/140.JPG" alt="photo 40" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/141.JPG" alt="photo 41" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/142.JPG" alt="photo 42" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/143.JPG" alt="photo 43" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/144.JPG" alt="photo 44" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/145.JPG" alt="photo 45" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/146.JPG" alt="photo 46" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/147.JPG" alt="photo 47" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/148.JPG" alt="photo 48" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/149.JPG" alt="photo 49" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/150.JPG" alt="photo 50" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/151.JPG" alt="photo 51" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/152.JPG" alt="photo 52" /><div class="slide-caption">💕 you &amp; me</div></div>
+                    <div class="slide"><img src="images/153.JPG" alt="photo 53" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/154.JPG" alt="photo 54" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/155.JPG" alt="photo 55" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/156.JPG" alt="photo 56" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/157.JPG" alt="photo 57" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/158.JPG" alt="photo 58" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/159.JPG" alt="photo 59" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/160.JPG" alt="photo 60" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/161.JPG" alt="photo 71" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/162.JPG" alt="photo 72" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/163.JPG" alt="photo 73" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/164.JPG" alt="photo 74" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/165.JPG" alt="photo 75" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/166.JPG" alt="photo 76" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/167.JPG" alt="photo 77" /><div class="slide-caption">🌹 forever love</div></div>
+                    <div class="slide"><img src="images/168.JPG" alt="photo 78" /><div class="slide-caption">🌹 forever love</div></div>
+                    <!-- (extra images beyond 168 are commented out in the original) -->
                 </div>
             </div>
+
             <div class="slideshow-controls">
                 <button class="slideshow-btn" id="prevSlide"><i class="fas fa-chevron-left"></i> Prev</button>
                 <button class="slideshow-btn" id="nextSlide">Next <i class="fas fa-chevron-right"></i></button>
             </div>
             <p style="margin-top: 0.5rem; color: #8b5f65;">⏵ slideshow plays like a video – click arrows or wait for auto advance</p>
 
-            <!-- PERSONAL VIDEO SECTION (commented out – remove comments if you want to use it) -->
-            <!-- <div class="video-container">
-                <video id="personalVideo" controls preload="metadata" poster="https://placekitten.com/600/300?image=4">
-                    <source src="YOUR_VIDEO_FILE_URL.mp4" type="video/mp4">
-                </video>
-                <div class="video-caption">
-                    <i class="fas fa-camera"></i> my message for you
-                </div>
-            </div> -->
-
-            <!-- PHOTO GALLERY GRID -->
+            <!-- ─── GALLERY ─── -->
             <h3 style="font-family: 'Playfair Display'; color: #a95c6a; margin: 2rem 0 1rem;">📸 our memories</h3>
             <div class="photo-gallery" id="photoGallery">
-                <div class="gallery-item"><img src="images/1.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/2.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/3.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/4.jpg" alt="photo 4"></div>
-                <div class="gallery-item"><img src="images/5.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/6.jpg" alt="photo 5"></div>
-                <div class="gallery-item"><img src="images/7.jpg" alt="photo 6"></div>
-                <div class="gallery-item"><img src="images/8.jpg" alt="photo 7"></div>
-                <div class="gallery-item"><img src="images/9.png" alt="photo 8"></div>
-                <div class="gallery-item"><img src="images/10.jpg" alt="photo 9"></div>
-                <div class="gallery-item"><img src="images/11.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/12.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/13.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/14.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/15.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/16.jpg" alt="photo 10"></div>
-                <!-- <div class="gallery-item"><img src="images/17.jpg" alt="photo 10"></div> -->
-                <div class="gallery-item"><img src="images/18.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/19.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/20.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/21.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/22.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/23.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/24.png" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/25.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/26.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/27.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/28.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/29.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/30.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/31.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/32.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/33.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/33.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/34.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/35.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/36.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/37.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/38.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/39.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/40.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/41.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/42.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/43.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/44.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/45.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/46.jpg" alt="photo 5"></div>
-                <div class="gallery-item"><img src="images/47.jpg" alt="photo 6"></div>
-                <div class="gallery-item"><img src="images/48.jpg" alt="photo 7"></div>
-                <div class="gallery-item"><img src="images/49.png" alt="photo 8"></div>
-                <div class="gallery-item"><img src="images/50.jpg" alt="photo 9"></div>
-                <div class="gallery-item"><img src="images/51.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/52.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/53.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/54.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/55.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/56.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/57.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/58.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/59.1.JPG" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/59.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/60.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/61.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/62.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/63.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/64.png" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/65.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/66.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/67.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/68.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/69.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/70.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/71.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/72.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/73.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/73.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/74.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/75.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/76.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/77.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/78.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/79.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/80.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/81.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/82.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/83.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/84.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/85.1.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/85.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/86.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/87.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/88.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/89.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/90.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/91.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/92.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/93.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/94.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/95.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/96.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/97.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/98.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/99.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/100.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/101.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/102.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/103.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/104.jpg" alt="photo 4"></div>
-                <div class="gallery-item"><img src="images/105.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/106.jpg" alt="photo 5"></div>
-                <div class="gallery-item"><img src="images/107.jpg" alt="photo 6"></div>
-                <div class="gallery-item"><img src="images/108.jpg" alt="photo 7"></div>
-                <div class="gallery-item"><img src="images/109.png" alt="photo 8"></div>
-                <div class="gallery-item"><img src="images/110.jpg" alt="photo 9"></div>
-                <div class="gallery-item"><img src="images/111.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/112.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/113.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/114.1.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/114.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/115.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/116.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/117.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/118.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/119.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/120.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/121.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/122.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/123.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/124.png" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/125.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/126.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/127.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/128.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/129.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/130.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/131.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/132.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/133.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/134.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/135.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/136.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/137.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/138.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/139.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/140.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/141.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/142.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/143.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/144.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/145.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/146.jpg" alt="photo 5"></div>
-                <div class="gallery-item"><img src="images/147.jpg" alt="photo 6"></div>
-                <div class="gallery-item"><img src="images/148.jpg" alt="photo 7"></div>
-                <div class="gallery-item"><img src="images/149.png" alt="photo 8"></div>
-                <div class="gallery-item"><img src="images/150.jpg" alt="photo 9"></div>
-                <div class="gallery-item"><img src="images/151.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/152.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/153.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/154.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/155.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/156.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/157.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/158.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/159.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/160.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/161.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/162.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/163.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/164.png" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/165.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/166.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/167.jpg" alt="photo 10"></div>
-                <div class="gallery-item"><img src="images/168.jpg" alt="photo 10"></div>
-                <!-- add more as needed -->
+                <!-- 1–58: .jpg / .png (unchanged) -->
+                <div class="gallery-item"><img src="images/1.jpg" alt="photo 1" /></div>
+                <div class="gallery-item"><img src="images/2.jpg" alt="photo 2" /></div>
+                <div class="gallery-item"><img src="images/3.jpg" alt="photo 3" /></div>
+                <div class="gallery-item"><img src="images/4.jpg" alt="photo 4" /></div>
+                <div class="gallery-item"><img src="images/5.jpg" alt="photo 5" /></div>
+                <div class="gallery-item"><img src="images/6.jpg" alt="photo 6" /></div>
+                <div class="gallery-item"><img src="images/7.jpg" alt="photo 7" /></div>
+                <div class="gallery-item"><img src="images/8.jpg" alt="photo 8" /></div>
+                <div class="gallery-item"><img src="images/9.png" alt="photo 9" /></div>
+                <div class="gallery-item"><img src="images/10.jpg" alt="photo 10" /></div>
+                <div class="gallery-item"><img src="images/11.jpg" alt="photo 11" /></div>
+                <div class="gallery-item"><img src="images/12.jpg" alt="photo 12" /></div>
+                <div class="gallery-item"><img src="images/13.jpg" alt="photo 13" /></div>
+                <div class="gallery-item"><img src="images/14.jpg" alt="photo 14" /></div>
+                <div class="gallery-item"><img src="images/15.jpg" alt="photo 15" /></div>
+                <div class="gallery-item"><img src="images/16.jpg" alt="photo 16" /></div>
+                <div class="gallery-item"><img src="images/18.jpg" alt="photo 18" /></div>
+                <div class="gallery-item"><img src="images/19.jpg" alt="photo 19" /></div>
+                <div class="gallery-item"><img src="images/20.jpg" alt="photo 20" /></div>
+                <div class="gallery-item"><img src="images/21.jpg" alt="photo 21" /></div>
+                <div class="gallery-item"><img src="images/22.jpg" alt="photo 22" /></div>
+                <div class="gallery-item"><img src="images/23.jpg" alt="photo 23" /></div>
+                <div class="gallery-item"><img src="images/24.png" alt="photo 24" /></div>
+                <div class="gallery-item"><img src="images/25.jpg" alt="photo 25" /></div>
+                <div class="gallery-item"><img src="images/26.jpg" alt="photo 26" /></div>
+                <div class="gallery-item"><img src="images/27.jpg" alt="photo 27" /></div>
+                <div class="gallery-item"><img src="images/28.jpg" alt="photo 28" /></div>
+                <div class="gallery-item"><img src="images/29.jpg" alt="photo 29" /></div>
+                <div class="gallery-item"><img src="images/30.jpg" alt="photo 30" /></div>
+                <div class="gallery-item"><img src="images/31.jpg" alt="photo 31" /></div>
+                <div class="gallery-item"><img src="images/32.jpg" alt="photo 32" /></div>
+                <div class="gallery-item"><img src="images/33.jpg" alt="photo 33" /></div>
+                <div class="gallery-item"><img src="images/34.jpg" alt="photo 34" /></div>
+                <div class="gallery-item"><img src="images/35.jpg" alt="photo 35" /></div>
+                <div class="gallery-item"><img src="images/36.jpg" alt="photo 36" /></div>
+                <div class="gallery-item"><img src="images/37.jpg" alt="photo 37" /></div>
+                <div class="gallery-item"><img src="images/38.jpg" alt="photo 38" /></div>
+                <div class="gallery-item"><img src="images/39.jpg" alt="photo 39" /></div>
+                <div class="gallery-item"><img src="images/40.jpg" alt="photo 40" /></div>
+                <div class="gallery-item"><img src="images/41.jpg" alt="photo 41" /></div>
+                <div class="gallery-item"><img src="images/42.jpg" alt="photo 42" /></div>
+                <div class="gallery-item"><img src="images/43.jpg" alt="photo 43" /></div>
+                <div class="gallery-item"><img src="images/44.jpg" alt="photo 44" /></div>
+                <div class="gallery-item"><img src="images/45.jpg" alt="photo 45" /></div>
+                <div class="gallery-item"><img src="images/46.jpg" alt="photo 46" /></div>
+                <div class="gallery-item"><img src="images/47.jpg" alt="photo 47" /></div>
+                <div class="gallery-item"><img src="images/48.jpg" alt="photo 48" /></div>
+                <div class="gallery-item"><img src="images/49.png" alt="photo 49" /></div>
+                <div class="gallery-item"><img src="images/50.jpg" alt="photo 50" /></div>
+                <div class="gallery-item"><img src="images/51.jpg" alt="photo 51" /></div>
+                <div class="gallery-item"><img src="images/52.jpg" alt="photo 52" /></div>
+                <div class="gallery-item"><img src="images/53.jpg" alt="photo 53" /></div>
+                <div class="gallery-item"><img src="images/54.jpg" alt="photo 54" /></div>
+                <div class="gallery-item"><img src="images/55.jpg" alt="photo 55" /></div>
+                <div class="gallery-item"><img src="images/56.jpg" alt="photo 56" /></div>
+                <div class="gallery-item"><img src="images/57.jpg" alt="photo 57" /></div>
+                <div class="gallery-item"><img src="images/58.jpg" alt="photo 58" /></div>
+
+                <!-- ─── 59 → 168: now all .JPG (uppercase) to match slideshow ─── -->
+                <div class="gallery-item"><img src="images/59.1.JPG" alt="photo 59" /></div>
+                <div class="gallery-item"><img src="images/59.JPG" alt="photo 59" /></div>
+                <div class="gallery-item"><img src="images/60.JPG" alt="photo 60" /></div>
+                <div class="gallery-item"><img src="images/61.JPG" alt="photo 61" /></div>
+                <div class="gallery-item"><img src="images/62.JPG" alt="photo 62" /></div>
+                <div class="gallery-item"><img src="images/63.JPG" alt="photo 63" /></div>
+                <div class="gallery-item"><img src="images/64.JPG" alt="photo 64" /></div>
+                <div class="gallery-item"><img src="images/65.JPG" alt="photo 65" /></div>
+                <div class="gallery-item"><img src="images/66.JPG" alt="photo 66" /></div>
+                <div class="gallery-item"><img src="images/67.JPG" alt="photo 67" /></div>
+                <div class="gallery-item"><img src="images/68.JPG" alt="photo 68" /></div>
+                <div class="gallery-item"><img src="images/69.JPG" alt="photo 69" /></div>
+                <div class="gallery-item"><img src="images/70.JPG" alt="photo 70" /></div>
+                <div class="gallery-item"><img src="images/71.JPG" alt="photo 71" /></div>
+                <div class="gallery-item"><img src="images/72.JPG" alt="photo 72" /></div>
+                <div class="gallery-item"><img src="images/73.JPG" alt="photo 73" /></div>
+                <div class="gallery-item"><img src="images/74.JPG" alt="photo 74" /></div>
+                <div class="gallery-item"><img src="images/75.JPG" alt="photo 75" /></div>
+                <div class="gallery-item"><img src="images/76.JPG" alt="photo 76" /></div>
+                <div class="gallery-item"><img src="images/77.JPG" alt="photo 77" /></div>
+                <div class="gallery-item"><img src="images/78.JPG" alt="photo 78" /></div>
+                <div class="gallery-item"><img src="images/79.JPG" alt="photo 79" /></div>
+                <div class="gallery-item"><img src="images/80.JPG" alt="photo 80" /></div>
+                <div class="gallery-item"><img src="images/81.JPG" alt="photo 81" /></div>
+                <div class="gallery-item"><img src="images/82.JPG" alt="photo 82" /></div>
+                <div class="gallery-item"><img src="images/83.JPG" alt="photo 83" /></div>
+                <div class="gallery-item"><img src="images/84.JPG" alt="photo 84" /></div>
+                <div class="gallery-item"><img src="images/85.1.JPG" alt="photo 85" /></div>
+                <div class="gallery-item"><img src="images/85.JPG" alt="photo 85" /></div>
+                <div class="gallery-item"><img src="images/86.JPG" alt="photo 86" /></div>
+                <div class="gallery-item"><img src="images/87.JPG" alt="photo 87" /></div>
+                <div class="gallery-item"><img src="images/88.JPG" alt="photo 88" /></div>
+                <div class="gallery-item"><img src="images/89.JPG" alt="photo 89" /></div>
+                <div class="gallery-item"><img src="images/90.JPG" alt="photo 90" /></div>
+                <div class="gallery-item"><img src="images/91.JPG" alt="photo 91" /></div>
+                <div class="gallery-item"><img src="images/92.JPG" alt="photo 92" /></div>
+                <div class="gallery-item"><img src="images/93.JPG" alt="photo 93" /></div>
+                <div class="gallery-item"><img src="images/94.JPG" alt="photo 94" /></div>
+                <div class="gallery-item"><img src="images/95.JPG" alt="photo 95" /></div>
+                <div class="gallery-item"><img src="images/96.JPG" alt="photo 96" /></div>
+                <div class="gallery-item"><img src="images/97.JPG" alt="photo 97" /></div>
+                <div class="gallery-item"><img src="images/98.JPG" alt="photo 98" /></div>
+                <div class="gallery-item"><img src="images/99.JPG" alt="photo 99" /></div>
+                <div class="gallery-item"><img src="images/100.JPG" alt="photo 100" /></div>
+                <div class="gallery-item"><img src="images/101.JPG" alt="photo 101" /></div>
+                <div class="gallery-item"><img src="images/102.JPG" alt="photo 102" /></div>
+                <div class="gallery-item"><img src="images/103.JPG" alt="photo 103" /></div>
+                <div class="gallery-item"><img src="images/104.JPG" alt="photo 104" /></div>
+                <div class="gallery-item"><img src="images/105.JPG" alt="photo 105" /></div>
+                <div class="gallery-item"><img src="images/106.JPG" alt="photo 106" /></div>
+                <div class="gallery-item"><img src="images/107.JPG" alt="photo 107" /></div>
+                <div class="gallery-item"><img src="images/108.JPG" alt="photo 108" /></div>
+                <div class="gallery-item"><img src="images/109.JPG" alt="photo 109" /></div>
+                <div class="gallery-item"><img src="images/110.JPG" alt="photo 110" /></div>
+                <div class="gallery-item"><img src="images/111.JPG" alt="photo 111" /></div>
+                <div class="gallery-item"><img src="images/112.JPG" alt="photo 112" /></div>
+                <div class="gallery-item"><img src="images/113.JPG" alt="photo 113" /></div>
+                <div class="gallery-item"><img src="images/114.1.JPG" alt="photo 114" /></div>
+                <div class="gallery-item"><img src="images/114.JPG" alt="photo 114" /></div>
+                <div class="gallery-item"><img src="images/115.JPG" alt="photo 115" /></div>
+                <div class="gallery-item"><img src="images/116.JPG" alt="photo 116" /></div>
+                <div class="gallery-item"><img src="images/117.JPG" alt="photo 117" /></div>
+                <div class="gallery-item"><img src="images/118.JPG" alt="photo 118" /></div>
+                <div class="gallery-item"><img src="images/119.JPG" alt="photo 119" /></div>
+                <div class="gallery-item"><img src="images/120.JPG" alt="photo 120" /></div>
+                <div class="gallery-item"><img src="images/121.JPG" alt="photo 121" /></div>
+                <div class="gallery-item"><img src="images/122.JPG" alt="photo 122" /></div>
+                <div class="gallery-item"><img src="images/123.JPG" alt="photo 123" /></div>
+                <div class="gallery-item"><img src="images/124.JPG" alt="photo 124" /></div>
+                <div class="gallery-item"><img src="images/125.JPG" alt="photo 125" /></div>
+                <div class="gallery-item"><img src="images/126.JPG" alt="photo 126" /></div>
+                <div class="gallery-item"><img src="images/127.JPG" alt="photo 127" /></div>
+                <div class="gallery-item"><img src="images/128.JPG" alt="photo 128" /></div>
+                <div class="gallery-item"><img src="images/129.JPG" alt="photo 129" /></div>
+                <div class="gallery-item"><img src="images/130.JPG" alt="photo 130" /></div>
+                <div class="gallery-item"><img src="images/131.JPG" alt="photo 131" /></div>
+                <div class="gallery-item"><img src="images/132.JPG" alt="photo 132" /></div>
+                <div class="gallery-item"><img src="images/133.JPG" alt="photo 133" /></div>
+                <div class="gallery-item"><img src="images/134.JPG" alt="photo 134" /></div>
+                <div class="gallery-item"><img src="images/135.JPG" alt="photo 135" /></div>
+                <div class="gallery-item"><img src="images/136.JPG" alt="photo 136" /></div>
+                <div class="gallery-item"><img src="images/137.JPG" alt="photo 137" /></div>
+                <div class="gallery-item"><img src="images/138.JPG" alt="photo 138" /></div>
+                <div class="gallery-item"><img src="images/139.JPG" alt="photo 139" /></div>
+                <div class="gallery-item"><img src="images/140.JPG" alt="photo 140" /></div>
+                <div class="gallery-item"><img src="images/141.JPG" alt="photo 141" /></div>
+                <div class="gallery-item"><img src="images/142.JPG" alt="photo 142" /></div>
+                <div class="gallery-item"><img src="images/143.JPG" alt="photo 143" /></div>
+                <div class="gallery-item"><img src="images/144.JPG" alt="photo 144" /></div>
+                <div class="gallery-item"><img src="images/145.JPG" alt="photo 145" /></div>
+                <div class="gallery-item"><img src="images/146.JPG" alt="photo 146" /></div>
+                <div class="gallery-item"><img src="images/147.JPG" alt="photo 147" /></div>
+                <div class="gallery-item"><img src="images/148.JPG" alt="photo 148" /></div>
+                <div class="gallery-item"><img src="images/149.JPG" alt="photo 149" /></div>
+                <div class="gallery-item"><img src="images/150.JPG" alt="photo 150" /></div>
+                <div class="gallery-item"><img src="images/151.JPG" alt="photo 151" /></div>
+                <div class="gallery-item"><img src="images/152.JPG" alt="photo 152" /></div>
+                <div class="gallery-item"><img src="images/153.JPG" alt="photo 153" /></div>
+                <div class="gallery-item"><img src="images/154.JPG" alt="photo 154" /></div>
+                <div class="gallery-item"><img src="images/155.JPG" alt="photo 155" /></div>
+                <div class="gallery-item"><img src="images/156.JPG" alt="photo 156" /></div>
+                <div class="gallery-item"><img src="images/157.JPG" alt="photo 157" /></div>
+                <div class="gallery-item"><img src="images/158.JPG" alt="photo 158" /></div>
+                <div class="gallery-item"><img src="images/159.JPG" alt="photo 159" /></div>
+                <div class="gallery-item"><img src="images/160.JPG" alt="photo 160" /></div>
+                <div class="gallery-item"><img src="images/161.JPG" alt="photo 161" /></div>
+                <div class="gallery-item"><img src="images/162.JPG" alt="photo 162" /></div>
+                <div class="gallery-item"><img src="images/163.JPG" alt="photo 163" /></div>
+                <div class="gallery-item"><img src="images/164.JPG" alt="photo 164" /></div>
+                <div class="gallery-item"><img src="images/165.JPG" alt="photo 165" /></div>
+                <div class="gallery-item"><img src="images/166.JPG" alt="photo 166" /></div>
+                <div class="gallery-item"><img src="images/167.JPG" alt="photo 167" /></div>
+                <div class="gallery-item"><img src="images/168.JPG" alt="photo 168" /></div>
+                <!-- extra images beyond 168 are omitted (they were commented out) -->
             </div>
 
             <div class="wedding-message">
-                every picture holds a story<br>here's to forever
+                every picture holds a story<br />here's to forever
             </div>
 
-            <!-- MUSIC PLAYER with multiple personal audio tracks -->
+            <!-- ─── MUSIC PLAYER ─── -->
             <div class="music-player">
                 <p><i class="fas fa-music"></i> choose your melody</p>
                 <div class="music-buttons">
@@ -861,7 +867,6 @@
                     <button class="music-btn" id="playMarch"><i class="fas fa-play"></i> Wedding March</button>
                     <button class="music-btn" id="playLove"><i class="fas fa-play"></i> Love Theme</button>
                     <button class="music-btn" id="playEdSheeran"><i class="fas fa-play"></i> Ed Sheeran Style</button>
-                    <!-- Multiple personal music buttons -->
                     <button class="music-btn" id="playPersonal1"><i class="fas fa-microphone"></i> My Music 1</button>
                     <button class="music-btn" id="playPersonal2"><i class="fas fa-microphone"></i> My Music 2</button>
                     <button class="music-btn" id="playPersonal3"><i class="fas fa-microphone"></i> My Music 3</button>
@@ -871,26 +876,26 @@
                 </div>
             </div>
 
-            <!-- hidden audio elements for personal recordings (add as many as you need) -->
+            <!-- hidden audio elements -->
             <audio id="personalAudio1" class="personal-audio" preload="none">
-                <source src="images/1.mp3" type="audio/mpeg">
+                <source src="images/1.mp3" type="audio/mpeg" />
             </audio>
             <audio id="personalAudio2" class="personal-audio" preload="none">
-                <source src="images/ehite.mp3" type="audio/mpeg">
+                <source src="images/ehite.mp3" type="audio/mpeg" />
             </audio>
             <audio id="personalAudio3" class="personal-audio" preload="none">
-                <source src="images/Tilahun.mp3" type="audio/mpeg">
+                <source src="images/Tilahun.mp3" type="audio/mpeg" />
             </audio>
             <audio id="personalAudio4" class="personal-audio" preload="none">
-                <source src="images/Tsegaye.mp3" type="audio/mpeg">
+                <source src="images/Tsegaye.mp3" type="audio/mpeg" />
             </audio>
             <audio id="personalAudio5" class="personal-audio" preload="none">
-                <source src="images/kana.mp3" type="audio/mpeg">
+                <source src="images/kana.mp3" type="audio/mpeg" />
             </audio>
 
-            <!-- BACKGROUND MUSIC – will start when gift is opened -->
+            <!-- background music -->
             <audio id="bgMusic" loop preload="auto">
-                <source src="images/Tilahun.mp3" type="audio/mpeg">
+                <source src="images/Tilahun.mp3" type="audio/mpeg" />
                 Your browser does not support the audio element.
             </audio>
 
@@ -900,12 +905,14 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1">
+    </script>
 
     <script>
         (function() {
-            // floating hearts
+            // ─── floating hearts ───
             const heartContainer = document.getElementById('heartContainer');
+
             function createHeart() {
                 const heart = document.createElement('div');
                 heart.classList.add('heart');
@@ -919,77 +926,84 @@
             }
             for (let i = 0; i < 25; i++) heartContainer.appendChild(createHeart());
 
-            // slideshow logic
+            // ─── slideshow ───
             const slides = document.getElementById('slides');
             const slidesCount = slides.children.length;
             let currentIndex = 0;
 
             function updateSlide() {
-                slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+                slides.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
             }
 
-            document.getElementById('nextSlide').addEventListener('click', () => {
+            document.getElementById('nextSlide').addEventListener('click', function() {
                 currentIndex = (currentIndex + 1) % slidesCount;
                 updateSlide();
             });
 
-            document.getElementById('prevSlide').addEventListener('click', () => {
+            document.getElementById('prevSlide').addEventListener('click', function() {
                 currentIndex = (currentIndex - 1 + slidesCount) % slidesCount;
                 updateSlide();
             });
 
-            // auto advance every 5 seconds
-            let autoAdvance = setInterval(() => {
+            let autoAdvance = setInterval(function() {
                 currentIndex = (currentIndex + 1) % slidesCount;
                 updateSlide();
             }, 5000);
 
-            // reset timer on manual click
             document.getElementById('nextSlide').addEventListener('click', resetTimer);
             document.getElementById('prevSlide').addEventListener('click', resetTimer);
 
             function resetTimer() {
                 clearInterval(autoAdvance);
-                autoAdvance = setInterval(() => {
+                autoAdvance = setInterval(function() {
                     currentIndex = (currentIndex + 1) % slidesCount;
                     updateSlide();
                 }, 5000);
             }
 
-            // music player (synthesized melodies)
+            // ─── music player (synthesized) ───
             let currentAudioCtx = null;
             let currentOscillators = [];
 
             function stopCurrentMusic() {
                 if (currentAudioCtx) {
-                    currentOscillators.forEach(osc => { try { osc.stop(); } catch (e) {} });
+                    currentOscillators.forEach(function(osc) {
+                        try { osc.stop(); } catch (e) {}
+                    });
                     if (currentAudioCtx.state !== 'closed') currentAudioCtx.close();
                 }
                 currentOscillators = [];
                 currentAudioCtx = null;
             }
 
-            function playMelody(notes, baseVolume = 0.15) {
+            function playMelody(notes, baseVolume) {
+                baseVolume = baseVolume || 0.15;
                 stopCurrentMusic();
-                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                var AudioContext = window.AudioContext || window.webkitAudioContext;
                 if (!AudioContext) return;
-                const audioCtx = new AudioContext();
+                var audioCtx = new AudioContext();
                 currentAudioCtx = audioCtx;
                 if (audioCtx.state === 'suspended') audioCtx.resume();
-                const now = audioCtx.currentTime;
-                function playNote(frequency, startTime, duration, volume = baseVolume, type = 'sine') {
-                    const osc = audioCtx.createOscillator();
-                    const gainNode = audioCtx.createGain();
-                    osc.type = type; osc.frequency.value = frequency;
+                var now = audioCtx.currentTime;
+
+                function playNote(frequency, startTime, duration, volume, type) {
+                    volume = volume || baseVolume;
+                    type = type || 'sine';
+                    var osc = audioCtx.createOscillator();
+                    var gainNode = audioCtx.createGain();
+                    osc.type = type;
+                    osc.frequency.value = frequency;
                     gainNode.gain.setValueAtTime(0, startTime);
                     gainNode.gain.linearRampToValueAtTime(volume, startTime + 0.03);
                     gainNode.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
-                    osc.connect(gainNode); gainNode.connect(audioCtx.destination);
+                    osc.connect(gainNode);
+                    gainNode.connect(audioCtx.destination);
                     currentOscillators.push(osc);
-                    osc.start(startTime); osc.stop(startTime + duration + 0.1);
+                    osc.start(startTime);
+                    osc.stop(startTime + duration + 0.1);
                 }
-                let time = now + 0.2;
-                notes.forEach(n => {
+                var time = now + 0.2;
+                notes.forEach(function(n) {
                     playNote(n.f, time, n.dur, n.vol || baseVolume, n.type || 'sine');
                     time += n.dur + 0.03;
                 });
@@ -1003,6 +1017,7 @@
                     { f: 523.25, dur: 1.2 }
                 ], 0.15);
             }
+
             function playWeddingMarch() {
                 playMelody([
                     { f: 659.25, dur: 0.4 }, { f: 659.25, dur: 0.4 }, { f: 659.25, dur: 0.8 },
@@ -1011,6 +1026,7 @@
                     { f: 587.33, dur: 0.6 }, { f: 659.25, dur: 1.2 }
                 ], 0.18);
             }
+
             function playLoveTheme() {
                 playMelody([
                     { f: 523.25, dur: 1.0, vol: 0.2 }, { f: 587.33, dur: 0.8, vol: 0.2 },
@@ -1019,6 +1035,7 @@
                     { f: 659.25, dur: 1.5, vol: 0.18 }
                 ], 0.18);
             }
+
             function playEdSheeranStyle() {
                 playMelody([
                     { f: 392.00, dur: 0.8, vol: 0.2 }, { f: 493.88, dur: 0.8, vol: 0.2 },
@@ -1028,15 +1045,15 @@
                 ], 0.2);
             }
 
-            // Multiple personal audio players
-            const personalAudio1 = document.getElementById('personalAudio1');
-            const personalAudio2 = document.getElementById('personalAudio2');
-            const personalAudio3 = document.getElementById('personalAudio3');
-            const personalAudio4 = document.getElementById('personalAudio4');
-            const personalAudio5 = document.getElementById('personalAudio5');
+            // ─── personal audio players ───
+            var personalAudio1 = document.getElementById('personalAudio1');
+            var personalAudio2 = document.getElementById('personalAudio2');
+            var personalAudio3 = document.getElementById('personalAudio3');
+            var personalAudio4 = document.getElementById('personalAudio4');
+            var personalAudio5 = document.getElementById('personalAudio5');
 
             function stopAllPersonalAudio() {
-                [personalAudio1, personalAudio2, personalAudio3, personalAudio4, personalAudio5].forEach(a => {
+                [personalAudio1, personalAudio2, personalAudio3, personalAudio4, personalAudio5].forEach(function(a) {
                     if (a) {
                         a.pause();
                         a.currentTime = 0;
@@ -1045,96 +1062,129 @@
             }
 
             function playPersonalAudio(audioElement) {
-                stopCurrentMusic();      // stop any synthesized melody
-                stopAllPersonalAudio();   // stop any other personal audio
-                // Also pause background music (optional: if you want background to stop when playing personal)
-                const bgMusic = document.getElementById('bgMusic');
+                stopCurrentMusic();
+                stopAllPersonalAudio();
+                var bgMusic = document.getElementById('bgMusic');
                 if (bgMusic && !bgMusic.paused) bgMusic.pause();
-                audioElement.play().catch(e => alert("Could not play audio. Check file URL."));
+                audioElement.play().catch(function(e) {
+                    alert('Could not play audio. Check file URL.');
+                });
             }
 
-            document.getElementById('playPersonal1').addEventListener('click', () => playPersonalAudio(personalAudio1));
-            document.getElementById('playPersonal2').addEventListener('click', () => playPersonalAudio(personalAudio2));
-            document.getElementById('playPersonal3').addEventListener('click', () => playPersonalAudio(personalAudio3));
-            document.getElementById('playPersonal4').addEventListener('click', () => playPersonalAudio(personalAudio4));
-            document.getElementById('playPersonal5').addEventListener('click', () => playPersonalAudio(personalAudio5));
+            document.getElementById('playPersonal1').addEventListener('click', function() { playPersonalAudio(
+                personalAudio1); });
+            document.getElementById('playPersonal2').addEventListener('click', function() { playPersonalAudio(
+                personalAudio2); });
+            document.getElementById('playPersonal3').addEventListener('click', function() { playPersonalAudio(
+                personalAudio3); });
+            document.getElementById('playPersonal4').addEventListener('click', function() { playPersonalAudio(
+                personalAudio4); });
+            document.getElementById('playPersonal5').addEventListener('click', function() { playPersonalAudio(
+                personalAudio5); });
 
-            // Updated stopAllMusic to also stop background music
             function stopAllMusic() {
                 stopCurrentMusic();
                 stopAllPersonalAudio();
-                const bgMusic = document.getElementById('bgMusic');
+                var bgMusic = document.getElementById('bgMusic');
                 if (bgMusic) {
                     bgMusic.pause();
-                    bgMusic.currentTime = 0;  // optional: reset to beginning
+                    bgMusic.currentTime = 0;
                 }
             }
 
-            document.getElementById('playCanon').addEventListener('click', () => {
-                stopAllMusic(); // stop background and personal
+            document.getElementById('playCanon').addEventListener('click', function() {
+                stopAllMusic();
                 playCanon();
             });
-            document.getElementById('playMarch').addEventListener('click', () => {
+            document.getElementById('playMarch').addEventListener('click', function() {
                 stopAllMusic();
                 playWeddingMarch();
             });
-            document.getElementById('playLove').addEventListener('click', () => {
+            document.getElementById('playLove').addEventListener('click', function() {
                 stopAllMusic();
                 playLoveTheme();
             });
-            document.getElementById('playEdSheeran').addEventListener('click', () => {
+            document.getElementById('playEdSheeran').addEventListener('click', function() {
                 stopAllMusic();
                 playEdSheeranStyle();
             });
             document.getElementById('stopMusic').addEventListener('click', stopAllMusic);
 
-            // reveal gift
-            const gift = document.getElementById('giftTrigger');
-            const surprise = document.getElementById('surpriseBox');
-            const subtitle = document.querySelector('.subtitle');
-            const hint = document.querySelector('.click-hint');
-            let revealed = false;
+            // ─── reveal gift ───
+            var gift = document.getElementById('giftTrigger');
+            var surprise = document.getElementById('surpriseBox');
+            var subtitle = document.querySelector('.subtitle');
+            var hint = document.querySelector('.click-hint');
+            var revealed = false;
 
             function revealGift() {
                 if (revealed) return;
                 revealed = true;
-                gift.style.transition = 'opacity 0.3s'; gift.style.opacity = '0';
-                subtitle.style.transition = 'opacity 0.3s'; subtitle.style.opacity = '0';
-                hint.style.transition = 'opacity 0.3s'; hint.style.opacity = '0';
-                setTimeout(() => {
-                    gift.style.display = 'none'; subtitle.style.display = 'none'; hint.style.display = 'none';
-                    surprise.classList.remove('hidden'); surprise.classList.add('fade-in');
-                    confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 }, colors: ['#f9c7c7', '#f8d5aa', '#fbb1b1'] });
-                    for (let i = 0; i < 8; i++) setTimeout(() => heartContainer.appendChild(createHeart()), i * 120);
-                    
-                    // Start background music (and stop any other music)
-                    const bgMusic = document.getElementById('bgMusic');
+                gift.style.transition = 'opacity 0.3s';
+                gift.style.opacity = '0';
+                subtitle.style.transition = 'opacity 0.3s';
+                subtitle.style.opacity = '0';
+                hint.style.transition = 'opacity 0.3s';
+                hint.style.opacity = '0';
+                setTimeout(function() {
+                    gift.style.display = 'none';
+                    subtitle.style.display = 'none';
+                    hint.style.display = 'none';
+                    surprise.classList.remove('hidden');
+                    surprise.classList.add('fade-in');
+                    confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 }, colors: ['#f9c7c7',
+                            '#f8d5aa', '#fbb1b1'
+                        ] });
+                    for (var i = 0; i < 8; i++) {
+                        setTimeout(function() { heartContainer.appendChild(createHeart()); }, i * 120);
+                    }
+                    var bgMusic = document.getElementById('bgMusic');
                     if (bgMusic) {
-                        stopAllMusic();  // ensures no conflicts
+                        stopAllMusic();
                         bgMusic.currentTime = 0;
-                        bgMusic.play().catch(e => console.log("Autoplay prevented", e));
+                        bgMusic.play().catch(function(e) { console.log('Autoplay prevented', e); });
                     }
                 }, 300);
             }
+
             gift.addEventListener('click', revealGift);
-            gift.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); revealGift(); } });
+            gift.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    revealGift();
+                }
+            });
 
-            // initial confetti
-            window.addEventListener('load', () => setTimeout(() => confetti({ particleCount: 30, spread: 45, origin: { y: 0.5 }, colors: ['#fadadd'] }), 600));
+            // ─── initial confetti ───
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    confetti({ particleCount: 30, spread: 45, origin: { y: 0.5 }, colors: ['#fadadd'] });
+                }, 600);
+            });
 
-            setInterval(() => {
-                if (heartContainer.children.length < 35) heartContainer.appendChild(createHeart());
-                else { heartContainer.removeChild(heartContainer.firstChild); heartContainer.appendChild(createHeart()); }
+            // ─── keep hearts flowing ───
+            setInterval(function() {
+                if (heartContainer.children.length < 35) {
+                    heartContainer.appendChild(createHeart());
+                } else {
+                    heartContainer.removeChild(heartContainer.firstChild);
+                    heartContainer.appendChild(createHeart());
+                }
             }, 3000);
+
         })();
     </script>
-    <!-- 
-        CUSTOMIZATION GUIDE:
-        1. Replace all image paths in slides and gallery with your own photos.
-        2. Update the audio source paths (music1.mp3, music2.mp3, etc.) with your own audio files.
-        3. If you want to use the video section, uncomment the <div class="video-container"> and provide your video URL.
-        4. Add or remove personal audio buttons as needed.
-        5. BACKGROUND MUSIC: upload your music file as "background-music.mp3" to the "images/" folder, or change the src in the <audio> element.
+
+    <!--
+    CUSTOMIZATION GUIDE
+    ──────────────────
+    1.  Place your images in the "images/" folder.
+    2.  For slideshow: images 1–58 use .jpg / .png; images 59–168 use .JPG.
+        (If your files use a different extension, update the src attributes.)
+    3.  For the gallery: same extension rules apply.
+    4.  Audio files: update the src in the <audio> elements to match your files.
+    5.  To use the video section, uncomment the <div class="video-container"> block.
+    6.  Background music starts automatically when the gift is opened.
     -->
 </body>
 </html>
