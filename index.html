@@ -225,6 +225,11 @@
             display: block;
         }
 
+        /* make slide images clickable */
+        .slide img {
+            cursor: pointer;
+        }
+
         .text-slide {
             background: #ffdede;
             display: flex;
@@ -251,6 +256,7 @@
             font-size: 1.2rem;
             font-weight: 500;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            pointer-events: none;
         }
 
         .slideshow-controls {
@@ -315,6 +321,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             transition: transform 0.3s;
+            cursor: pointer;
         }
 
         .gallery-item:hover {
@@ -325,6 +332,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .wedding-message {
@@ -434,6 +442,168 @@
         .custom-note i {
             margin-right: 8px;
             color: #b76e79;
+        }
+
+        /* ─── LIGHTBOX / FULL-SIZE VIEWER ─── */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            animation: fadeIn 0.3s ease;
+            cursor: pointer;
+        }
+
+        .lightbox-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            object-fit: contain;
+            cursor: default;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 25px;
+            right: 35px;
+            color: #fff;
+            font-size: 3rem;
+            cursor: pointer;
+            z-index: 10000;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .lightbox-close i {
+            font-size: 2.2rem;
+            color: #fff;
+        }
+
+        .lightbox-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            pointer-events: none;
+        }
+
+        .lightbox-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 3.5rem;
+            cursor: pointer;
+            z-index: 10000;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+            border: none;
+            user-select: none;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+        }
+
+        .lightbox-nav.prev {
+            left: 20px;
+        }
+        .lightbox-nav.next {
+            right: 20px;
+        }
+
+        .lightbox-nav i {
+            font-size: 2.8rem;
+            color: #fff;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 640px) {
+            .lightbox-nav {
+                width: 50px;
+                height: 50px;
+                font-size: 2rem;
+            }
+            .lightbox-nav i {
+                font-size: 1.8rem;
+            }
+            .lightbox-nav.prev {
+                left: 8px;
+            }
+            .lightbox-nav.next {
+                right: 8px;
+            }
+            .lightbox-close {
+                top: 15px;
+                right: 15px;
+                width: 48px;
+                height: 48px;
+                font-size: 2rem;
+            }
+            .lightbox-close i {
+                font-size: 1.6rem;
+            }
+            .lightbox-content {
+                max-width: 95vw;
+                max-height: 80vh;
+            }
+            .lightbox-counter {
+                bottom: 18px;
+                font-size: 0.8rem;
+                padding: 4px 14px;
+            }
         }
 
         @media (max-width: 600px) {
@@ -666,7 +836,6 @@
                     <div class="slide"><img src="images/166.JPG" alt="photo 76" /><div class="slide-caption">🌹 forever love</div></div>
                     <div class="slide"><img src="images/167.JPG" alt="photo 77" /><div class="slide-caption">🌹 forever love</div></div>
                     <div class="slide"><img src="images/168.JPG" alt="photo 78" /><div class="slide-caption">🌹 forever love</div></div>
-                    <!-- (extra images beyond 168 are commented out in the original) -->
                 </div>
             </div>
 
@@ -679,7 +848,7 @@
             <!-- ─── GALLERY ─── -->
             <h3 style="font-family: 'Playfair Display'; color: #a95c6a; margin: 2rem 0 1rem;">📸 our memories</h3>
             <div class="photo-gallery" id="photoGallery">
-                <!-- 1–58: .jpg / .png (unchanged) -->
+                <!-- 1–58: .jpg / .png -->
                 <div class="gallery-item"><img src="images/1.jpg" alt="photo 1" /></div>
                 <div class="gallery-item"><img src="images/2.jpg" alt="photo 2" /></div>
                 <div class="gallery-item"><img src="images/3.jpg" alt="photo 3" /></div>
@@ -738,7 +907,7 @@
                 <div class="gallery-item"><img src="images/57.jpg" alt="photo 57" /></div>
                 <div class="gallery-item"><img src="images/58.jpg" alt="photo 58" /></div>
 
-                <!-- ─── 59 → 168: now all .JPG (uppercase) to match slideshow ─── -->
+                <!-- 59 → 168: .JPG -->
                 <div class="gallery-item"><img src="images/59.1.JPG" alt="photo 59" /></div>
                 <div class="gallery-item"><img src="images/59.JPG" alt="photo 59" /></div>
                 <div class="gallery-item"><img src="images/60.JPG" alt="photo 60" /></div>
@@ -852,7 +1021,6 @@
                 <div class="gallery-item"><img src="images/166.JPG" alt="photo 166" /></div>
                 <div class="gallery-item"><img src="images/167.JPG" alt="photo 167" /></div>
                 <div class="gallery-item"><img src="images/168.JPG" alt="photo 168" /></div>
-                <!-- extra images beyond 168 are omitted (they were commented out) -->
             </div>
 
             <div class="wedding-message">
@@ -903,6 +1071,15 @@
                 <i class="fas fa-heart" style="color:#f18b8b;"></i> with all my love
             </div>
         </div>
+    </div>
+
+    <!-- ─── LIGHTBOX OVERLAY ─── -->
+    <div class="lightbox-overlay" id="lightboxOverlay">
+        <div class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></div>
+        <button class="lightbox-nav prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-nav next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+        <img class="lightbox-content" id="lightboxImg" src="" alt="full size" />
+        <div class="lightbox-counter" id="lightboxCounter"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1">
@@ -1172,6 +1349,136 @@
                 }
             }, 3000);
 
+            // ═══════════════════════════════════════════════════
+            // ─── LIGHTBOX: FULL-SIZE IMAGE VIEWER ───
+            // ═══════════════════════════════════════════════════
+
+            const overlay = document.getElementById('lightboxOverlay');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const closeBtn = document.getElementById('lightboxClose');
+            const prevBtn = document.getElementById('lightboxPrev');
+            const nextBtn = document.getElementById('lightboxNext');
+            const counter = document.getElementById('lightboxCounter');
+
+            // collect all clickable images from slideshow + gallery
+            let allImages = [];
+
+            function collectImages() {
+                const slideshowImgs = document.querySelectorAll('.slide img');
+                const galleryImgs = document.querySelectorAll('.gallery-item img');
+                // combine both sets, filter out any that might be missing src
+                const combined = [];
+                slideshowImgs.forEach(function(img) {
+                    if (img.src && img.src.length > 0) combined.push(img);
+                });
+                galleryImgs.forEach(function(img) {
+                    if (img.src && img.src.length > 0) combined.push(img);
+                });
+                return combined;
+            }
+
+            // refresh image list each time (in case DOM changes, though it's static)
+            function refreshImageList() {
+                allImages = collectImages();
+            }
+
+            let currentImageIndex = 0;
+
+            function openLightbox(imgElement) {
+                // find index of this image in the master list
+                const idx = allImages.indexOf(imgElement);
+                if (idx === -1) return;
+                currentImageIndex = idx;
+                showImage(currentImageIndex);
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function showImage(index) {
+                if (index < 0) index = allImages.length - 1;
+                if (index >= allImages.length) index = 0;
+                currentImageIndex = index;
+                const img = allImages[currentImageIndex];
+                if (img) {
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt || 'full size photo';
+                    counter.textContent = (currentImageIndex + 1) + ' / ' + allImages.length;
+                }
+            }
+
+            function closeLightbox() {
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            // --- event listeners ---
+            closeBtn.addEventListener('click', closeLightbox);
+            overlay.addEventListener('click', function(e) {
+                // close only if clicking the overlay itself (not the image or nav buttons)
+                if (e.target === overlay) closeLightbox();
+            });
+
+            prevBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                showImage(currentImageIndex - 1);
+            });
+
+            nextBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                showImage(currentImageIndex + 1);
+            });
+
+            // keyboard support
+            document.addEventListener('keydown', function(e) {
+                if (!overlay.classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') showImage(currentImageIndex - 1);
+                if (e.key === 'ArrowRight') showImage(currentImageIndex + 1);
+            });
+
+            // --- attach click handlers to all images ---
+            function attachLightboxClicks() {
+                refreshImageList();
+                allImages.forEach(function(img) {
+                    // remove any previous listener to avoid duplicates
+                    img.removeEventListener('click', lightboxClickHandler);
+                    img.addEventListener('click', lightboxClickHandler);
+                });
+            }
+
+            function lightboxClickHandler(e) {
+                e.stopPropagation();
+                openLightbox(this);
+            }
+
+            // initial attachment
+            attachLightboxClicks();
+
+            // also re-attach when gift is opened (DOM may change, but it's static; still safe)
+            // we'll re-run after reveal just in case
+            const origReveal = revealGift;
+            revealGift = function() {
+                origReveal.call(this);
+                // after a short delay, re-attach lightbox to any newly visible images
+                setTimeout(function() {
+                    attachLightboxClicks();
+                }, 500);
+            };
+
+            // if the gift is already revealed (edge case), re-attach
+            // but we handle it via the override above.
+
+            // Also re-attach after any potential DOM changes (e.g., if user adds images dynamically)
+            // We'll use a MutationObserver on the gallery and slideshow containers
+            const observer = new MutationObserver(function() {
+                attachLightboxClicks();
+            });
+            const gallery = document.getElementById('photoGallery');
+            const slidesContainer = document.getElementById('slides');
+            if (gallery) observer.observe(gallery, { childList: true, subtree: true });
+            if (slidesContainer) observer.observe(slidesContainer, { childList: true, subtree: true });
+
+            console.log('💍 Lightbox ready – click any photo to view full size!');
         })();
     </script>
 
@@ -1185,6 +1492,8 @@
     4.  Audio files: update the src in the <audio> elements to match your files.
     5.  To use the video section, uncomment the <div class="video-container"> block.
     6.  Background music starts automatically when the gift is opened.
+    7.  Click any photo (slideshow or gallery) to view it full-size in the lightbox.
+        Use arrow keys or on-screen buttons to navigate.
     -->
 </body>
 </html>
